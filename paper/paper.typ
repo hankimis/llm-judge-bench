@@ -183,6 +183,8 @@ In the *length-matched* condition, both families answer under a fixed 30-word bu
   caption: [Self-preference, free vs length-matched answers (12 open questions; "prefers OpenAI answer" and "prefers own family"). Cross-family gap: free *+13 pt* (lengths 131/158 chars), length-matched *+26 pt* (219/205 chars). Controlling length doubles the measured self-preference.],
 ) <tab-self>
 
+#figure(image("figs/self-preference.png", width: 82%), caption: [Self-preference, free (left) vs length-matched (right) answers. Equalizing length lifts every OpenAI judge's preference for the OpenAI answer, doubling the cross-family gap from +13 to +26 pt — the verbosity bias had been masking it.]) <fig-self>
+
 = Why these biases: mechanism and statistics
 
 The pattern — position bias solved, verbosity bias strong, self-preference present once length is controlled — is not arbitrary. Each bias has a plausible origin in how these models are built, and the origins predict exactly which biases would prove tractable.
@@ -207,7 +209,9 @@ The effects are large relative to the sample. Truth-accuracy of 38/39 (gpt-4o) h
 
 == The dissociation
 
-The headline is a dissociation: *where there is a correct answer, frontier judges find it and are not swayed by length or order; where quality is tied, the same judges systematically reward length.* This reconciles two narratives. The "LLM judges are biased" literature @wang2023fair @saito2023 is right that the biases exist; our result adds *where* — they are gated by the presence of ground truth. When correctness can decide the comparison, it dominates, and the biases vanish into the noise; when it cannot, the biases drive the verdict. Position bias, notably, appears to have been *engineered away* in current models (≈50% first-slot everywhere), while verbosity bias has not.
+The headline is a dissociation (Figure @fig-diss): *where there is a correct answer, frontier judges find it and are not swayed by length or order; where quality is tied, the same judges systematically reward length.* This reconciles two narratives.
+
+#figure(image("figs/dissociation.png", width: 92%), caption: [The dissociation in one view: the same five judges are near-perfect on objective items (green, truth-accuracy) and strongly biased toward the longer answer on matched-quality ties (red). Reliable where verifiable, biased where subjective.]) <fig-diss> The "LLM judges are biased" literature @wang2023fair @saito2023 is right that the biases exist; our result adds *where* — they are gated by the presence of ground truth. When correctness can decide the comparison, it dominates, and the biases vanish into the noise; when it cannot, the biases drive the verdict. Position bias, notably, appears to have been *engineered away* in current models (≈50% first-slot everywhere), while verbosity bias has not.
 
 == Implications for using LLM judges
 

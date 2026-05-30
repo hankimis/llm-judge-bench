@@ -22,6 +22,10 @@ A clean **dissociation** across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4
 
 **Reading:** the classic *position* bias appears solved; the classic *verbosity* bias is alive and strong, but surfaces only when quality is tied; a substantial self-preference emerges once length is controlled. **LLM-as-judge is reliable for verifiable tasks and risky for subjective grading**, where it rewards length over substance and leans toward its own kind.
 
+The dissociation in one picture — the *same* five judges, near-perfect where a correct answer exists (green) and strongly length-biased where quality is tied (red):
+
+![the dissociation](docs/dissociation.gif)
+
 ## Results
 
 ### 1. Ground-truth items (an objective answer exists) — 39 items
@@ -48,6 +52,8 @@ A clean **dissociation** across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4
 
 50% would be unbiased. Position preference on ties stays ~50–57% — the effect is length, not order.
 
+![verbosity bias on ties](docs/verbosity.gif)
+
 ### 3. Self-preference (OpenAI-family vs Anthropic-family answer) — 12 questions
 
 | Judge | Family | Free: prefers OpenAI | Matched: prefers OpenAI |
@@ -64,6 +70,8 @@ A clean **dissociation** across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4
 | **Length-matched** | **+26 pt** | 219 / 205 chars |
 
 The gap is a difference-in-differences: every judge sees the *identical* pair, so length cancels in the difference. Controlling length **doubles** the measured self-preference — the free measurement understated it because the verbosity bias dragged every judge toward the longer (Anthropic) answers. Full numbers in [`REPORT.md`](REPORT.md).
+
+![self-preference, free vs length-matched](docs/self-preference.gif)
 
 ## Why ground truth
 
@@ -145,7 +153,8 @@ A full snapshot is a few hundred API calls (a few dollars), mostly on the cheap 
 - **Data:** `data/items.json` (39 objective items) · `data/ties.json` (29 matched-quality pairs) · `data/openq.json` (12 self-preference questions)
 - **Output:** `results.json` (raw verdicts + generated answers, released for transparency) · `REPORT.md` (dated summary)
 - **Paper:** `paper/paper.typ` → `paper/paper.pdf` (12pp: method, results, mechanisms, statistics, epistemics, appendices) · `paper/refs.bib`
-- **Misc:** `docs/leaderboard.gif` + `docs/demo.tape` (vhs) · `LICENSE` (MIT)
+- **Visualization:** `viz.mjs` → `docs/dissociation.gif` (the headline), `docs/verbosity.gif`, `docs/self-preference.gif`; `score.mjs` → `docs/leaderboard.gif`. Recorded with `vhs` (`docs/*.tape`).
+- **Misc:** `LICENSE` (MIT)
 
 ## Honest limits
 
