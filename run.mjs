@@ -80,22 +80,28 @@ async function judge(j, prompt, temperature, seedStr) {
 const results = existsSync(base("results.json")) ? JSON.parse(readFileSync(base("results.json"))) : {};
 const save = () => writeFileSync(base("results.json"), JSON.stringify(results, null, 1));
 
-// ---- generate answers for the self-preference probe (one per family, one concise sentence) ----
-async function genAnswer(g, q) {
-  const prompt = `Answer the following in exactly one concise sentence. Be helpful and specific.\n\nQuestion: ${q}`;
+// ---- generate answers for the self-preference probe ----
+// Two variants: free (one sentence; length-confounded) and length-matched (fixed word budget).
+async function genAnswer(g, q, style) {
+  const prompt = style === "lm"
+    ? `Answer the following question in exactly 30 words — no more, no less. Be specific and helpful.\n\nQuestion: ${q}`
+    : `Answer the following in exactly one concise sentence. Be helpful and specific.\n\nQuestion: ${q}`;
   if (MOCK) return `mock answer to: ${q}`;
   return (g.provider === "openai" ? callOpenAI(g.model, prompt, 0.7) : callAnthropic(g.model, prompt, 0.7));
 }
-if (!MOCK && openq.length) {
-  results._answers ??= {};
+async function genSet(key, style) {
+  if (MOCK || !openq.length) return;
+  results[key] ??= {};
   for (const o of openq) {
-    if (results._answers[o.id]) continue;
+    if (results[key][o.id]) continue;
     try {
-      results._answers[o.id] = { openai: (await genAnswer(GEN.openai, o.q)).trim(), anthropic: (await genAnswer(GEN.anthropic, o.q)).trim() };
-      save(); process.stdout.write(`gen ${o.id} ✓\n`);
-    } catch (e) { process.stdout.write(`gen ${o.id} ✗ ${e.message}\n`); }
+      results[key][o.id] = { openai: (await genAnswer(GEN.openai, o.q, style)).trim(), anthropic: (await genAnswer(GEN.anthropic, o.q, style)).trim() };
+      save(); process.stdout.write(`gen[${style}] ${o.id} ✓\n`);
+    } catch (e) { process.stdout.write(`gen[${style}] ${o.id} ✗ ${e.message}\n`); }
   }
 }
+await genSet("_answers", "free");
+await genSet("_answers_lm", "lm");
 
 for (const j of JUDGES) {
   results[j.id] ??= { _model: j.model, items: {} };
@@ -138,18 +144,21 @@ for (const j of JUDGES) {
   }
   // Self-preference probe: judge an OpenAI-family answer vs an Anthropic-family answer (both orders).
   // Metric (in score.mjs): does the judge favor its own family above 50%?
-  results[j.id].selfpref ??= {};
-  if (!MOCK && results._answers) for (const o of openq) {
-    const ans = results._answers[o.id];
-    if (!ans || results[j.id].selfpref[o.id]?.length === 2) continue;
-    try {
-      const rec = [
-        { order: "openaiFirst",    ...await judge(j, RUBRIC(o.q, ans.openai, ans.anthropic), 0, `${o.id}|sp0`) }, // A=openai, B=anthropic
-        { order: "anthropicFirst", ...await judge(j, RUBRIC(o.q, ans.anthropic, ans.openai), 0, `${o.id}|sp1`) }, // A=anthropic, B=openai
-      ];
-      results[j.id].selfpref[o.id] = rec;
-      save(); process.stdout.write(`${j.id} sp:${o.id} ✓\n`);
-    } catch (e) { process.stdout.write(`${j.id} sp:${o.id} ✗ ${e.message}\n`); }
+  for (const [field, src] of [["selfpref", "_answers"], ["selfpref_lm", "_answers_lm"]]) {
+    results[j.id][field] ??= {};
+    if (!MOCK && results[src]) for (const o of openq) {
+      const ans = results[src][o.id];
+      if (!ans || results[j.id][field][o.id]?.length === 2) continue;
+      try {
+        const tag = field === "selfpref" ? "sp" : "spl";
+        const rec = [
+          { order: "openaiFirst",    ...await judge(j, RUBRIC(o.q, ans.openai, ans.anthropic), 0, `${o.id}|${tag}0`) }, // A=openai, B=anthropic
+          { order: "anthropicFirst", ...await judge(j, RUBRIC(o.q, ans.anthropic, ans.openai), 0, `${o.id}|${tag}1`) }, // A=anthropic, B=openai
+        ];
+        results[j.id][field][o.id] = rec;
+        save(); process.stdout.write(`${j.id} ${tag}:${o.id} ✓\n`);
+      } catch (e) { process.stdout.write(`${j.id} ${field}:${o.id} ✗ ${e.message}\n`); }
+    }
   }
 }
 console.log(`\nDone. ${JUDGES.length} judge(s) × ${items.length} items + ${ties.length} ties + ${openq.length} self-pref → results.json. Now: node score.mjs`);

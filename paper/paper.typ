@@ -46,7 +46,7 @@
 #block(fill: luma(246), inset: 13pt, radius: 4pt, width: 100%)[
   #set par(first-line-indent: 0em)
   #text(9.5pt)[
-    *Abstract.* "LLM-as-judge" — using a strong language model to grade the outputs of other models — is now the default evaluation method, but the judge is itself a fallible model with biases. Most studies measure a judge by its *agreement with humans* or with *other judges*; both are confounded, because raters and judges can share a bias and be wrong together. We instead measure judges against *ground truth*: a benchmark of items each with a known-correct and a plausibly-wrong answer, so a judge's accuracy can be scored directly, and its position, verbosity, self-consistency, calibration, and self-preference biases isolated as deviations from a perfect oracle. Across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4.1, Claude Sonnet 4.6, Claude Haiku 4.5) we find a clean *dissociation*. On 39 objective items — including common misconceptions and counterintuitive-reasoning traps designed to induce error — judges are *near-perfect* (97–100% truth-accuracy), show *no position bias*, are *not fooled* by padding the wrong answer with authoritative filler, are perfectly self-consistent, and are well-calibrated. Yet on 29 *matched-quality* pairs, where both answers are fully correct and differ only in length, the same judges *strongly prefer the longer answer* (72–100%). A self-preference probe shows a modest own-family lean (+13 pt cross-family gap) once a length confound is controlled by differencing. The classic *position* bias appears solved; the classic *verbosity* bias is alive and strong, but surfaces only when quality is tied. The practical reading: LLM-as-judge is reliable for *verifiable* tasks and risky for *subjective* grading, where it rewards length over substance.
+    *Abstract.* "LLM-as-judge" — using a strong language model to grade the outputs of other models — is now the default evaluation method, but the judge is itself a fallible model with biases. Most studies measure a judge by its *agreement with humans* or with *other judges*; both are confounded, because raters and judges can share a bias and be wrong together. We instead measure judges against *ground truth*: a benchmark of items each with a known-correct and a plausibly-wrong answer, so a judge's accuracy can be scored directly, and its position, verbosity, self-consistency, calibration, and self-preference biases isolated as deviations from a perfect oracle. Across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4.1, Claude Sonnet 4.6, Claude Haiku 4.5) we find a clean *dissociation*. On 39 objective items — including common misconceptions and counterintuitive-reasoning traps designed to induce error — judges are *near-perfect* (97–100% truth-accuracy), show *no position bias*, are *not fooled* by padding the wrong answer with authoritative filler, are perfectly self-consistent, and are well-calibrated. Yet on 29 *matched-quality* pairs, where both answers are fully correct and differ only in length, the same judges *strongly prefer the longer answer* (72–100%). A self-preference probe, run on both free-form and *length-matched* answers, shows that the own-family bias is *masked* by verbosity when answer lengths differ: the cross-family gap is +13 pt with free answers but *doubles to +26 pt* once length is equalized — one bias hiding another. The classic *position* bias appears solved; the classic *verbosity* bias is alive and strong, but surfaces only when quality is tied; a substantial self-preference emerges once length is controlled. The practical reading: LLM-as-judge is reliable for *verifiable* tasks and risky for *subjective* grading, where it rewards length over substance and leans toward its own kind.
 
     #v(4pt)
     #text(8.7pt)[*Keywords:* LLM-as-judge · evaluation · ground truth · verbosity bias · position bias · self-preference · calibration · reliability · reproducibility]
@@ -60,7 +60,7 @@
   #set par(first-line-indent: 0em)
   + A *ground-truth* LLM-judge benchmark that scores accuracy against truth, not against humans or other judges, plus a position-robust accuracy metric.
   + A *dissociation* result across five frontier judges: near-perfect, unbiased judging on objective items versus strong verbosity bias on matched-quality ties.
-  + A *self-preference* probe with a difference-in-differences design that controls a length confound, finding a modest +13 pt own-family lean.
+  + A *self-preference* probe with a difference-in-differences design and a free-vs-length-matched comparison, showing that verbosity bias *masks* self-preference: the own-family gap doubles from +13 pt to +26 pt once length is controlled.
   + An open, one-command, resumable harness with dated snapshots, released under MIT.
 ]
 
@@ -112,7 +112,7 @@ The sensitive test of verbosity bias removes the ground truth. Each of 29 *tie* 
 
 == The self-preference probe (difference-in-differences)
 
-For 12 open-ended questions with no single right answer, we generate one answer from an OpenAI-family model and one from an Anthropic-family model (each constrained to one concise sentence), and have every judge pick the better, in both orders. The *absolute* own-family preference is confounded by answer quality and length; we therefore report the *cross-family gap* — the difference between how often OpenAI judges and Anthropic judges prefer the OpenAI answer. Because every judge sees the *identical* answer pair, any shared property (including length) cancels in this difference, leaving a length-controlled estimate of self-preference.
+For 12 open-ended questions with no single right answer, we generate one answer from an OpenAI-family model and one from an Anthropic-family model, and have every judge pick the better, in both orders. The *absolute* own-family preference is confounded by answer quality and length; we therefore report the *cross-family gap* — the difference between how often OpenAI judges and Anthropic judges prefer the OpenAI answer. Because every judge sees the *identical* answer pair, any shared property (including length) cancels in this difference, leaving a length-controlled estimate of self-preference. We run this twice: with *free* answers (one sentence each, which turn out to differ in length) and with *length-matched* answers (both generated under a fixed 30-word budget). Comparing the two isolates how much the verbosity bias of Section 4.2 contaminates a naive self-preference measurement.
 
 == Judges and implementation
 
@@ -160,24 +160,48 @@ Remove the ground truth and the picture inverts (Table @tab-ties). On 29 pairs w
   caption: [Matched-quality tie test: 29 pairs, both answers fully correct, differing only in length. 50% = unbiased; every judge prefers the longer answer.],
 ) <tab-ties>
 
-== A modest self-preference survives length control
+== Self-preference: a confound, and what it hides
 
-On the open-ended questions, every judge preferred the Anthropic-generated answers in absolute terms — but those answers were on average longer (158 vs 131 characters), so given the verbosity bias just measured, the absolute numbers are a length artifact, not loyalty. The clean signal is the *cross-family gap*: OpenAI judges prefer the OpenAI answer 29% of the time versus 17% for Anthropic judges, a *+13 pt* lean toward their own family despite those answers being shorter (Table @tab-self). Because all judges see the identical pair, length cancels in this difference. The self-preference reported elsewhere @panickssery2024 is therefore present but modest here, and easy to mistake for — or have masked by — verbosity bias.
+Self-preference is the hardest of the three biases to measure, because it is entangled with answer quality and — given Section 4.2 — with answer length. We measure it twice, and the comparison is itself the finding (Table @tab-self).
+
+In the *free* condition, each family's answer is one sentence of its own choosing. Every judge then prefers the Anthropic answers in absolute terms — but the Anthropic answers were longer (158 vs 131 characters on average), so given the strong verbosity bias just established, the absolute numbers are a length artifact, and that length pull *masks* any self-preference. We therefore read the bias off the *cross-family gap*, a difference-in-differences: because every judge scores the *identical* answer pair, any property shared by the pair — including its length — cancels in the difference between how often OpenAI judges and Anthropic judges prefer the OpenAI answer. In the free condition that gap is *+13 pt*.
+
+In the *length-matched* condition, both families answer under a fixed 30-word budget, equalizing length (219 vs 205 characters — if anything the OpenAI answers are now slightly longer). With the verbosity confound removed, the gap *doubles to +26 pt*: net of length, OpenAI judges prefer the OpenAI answer about 27 points more than Anthropic judges do. The free measurement understated the effect precisely because the verbosity bias dragged every judge toward the longer Anthropic answers, partially cancelling the OpenAI judges' loyalty. This is a substantial, length-controlled self-preference, consistent with the self-recognition account of Panickssery et al. @panickssery2024, and a concrete demonstration that *one bias can mask another* unless controlled.
 
 #figure(
   table(
-    columns: (auto, auto, auto, auto),
-    align: (left, left, right, right),
+    columns: (auto, auto, auto, auto, auto, auto),
+    align: (left, left, right, right, right, right),
     stroke: 0.4pt + luma(200), inset: 5pt,
-    table.header([*Judge*], [*Family*], [*Prefers OpenAI ans.*], [*Prefers own family*]),
-    [claude-sonnet-4-6], [anthropic], [13%], [88%],
-    [claude-haiku-4-5],  [anthropic], [21%], [79%],
-    [gpt-4.1],           [openai],    [33%], [33%],
-    [gpt-4o],            [openai],    [38%], [38%],
-    [gpt-4o-mini],       [openai],    [17%], [17%],
+    table.header([*Judge*], [*Family*], [*Free: OpenAI*], [*Free: own*], [*Matched: OpenAI*], [*Matched: own*]),
+    [claude-sonnet-4-6], [anthropic], [13%], [88%], [25%], [75%],
+    [claude-haiku-4-5],  [anthropic], [21%], [79%], [25%], [75%],
+    [gpt-4.1],           [openai],    [33%], [33%], [54%], [54%],
+    [gpt-4o],            [openai],    [38%], [38%], [63%], [63%],
+    [gpt-4o-mini],       [openai],    [17%], [17%], [38%], [38%],
   ),
-  caption: [Self-preference over 12 open questions. Absolute own-preference is length-confounded; the length-controlled signal is the cross-family gap (OpenAI judges 29% vs Anthropic judges 17% prefer the OpenAI answer → +13 pt).],
+  caption: [Self-preference, free vs length-matched answers (12 open questions; "prefers OpenAI answer" and "prefers own family"). Cross-family gap: free *+13 pt* (lengths 131/158 chars), length-matched *+26 pt* (219/205 chars). Controlling length doubles the measured self-preference.],
 ) <tab-self>
+
+= Why these biases: mechanism and statistics
+
+The pattern — position bias solved, verbosity bias strong, self-preference present once length is controlled — is not arbitrary. Each bias has a plausible origin in how these models are built, and the origins predict exactly which biases would prove tractable.
+
+== Position bias is a surface artifact, and was removable
+
+Position bias is a property of *how options are presented*, not of their content: a judge that attends disproportionately to the first (or last) slot will flip its verdict under reordering. Because it is content-independent, it is also *trainable away* — by exposing the model to order-swapped comparisons during preference training, or simply as a byproduct of stronger instruction-following. Earlier studies found it large @wang2023fair; our ~50% first-slot rates across all five judges and both probes indicate it has been substantially engineered out of current frontier models. It is the bias that was *easy to see and easy to fix*, and it was fixed.
+
+== Verbosity bias is baked into the reward signal
+
+Verbosity bias is different in kind, because length is not a surface artifact but a *learned proxy for quality*. Human preference data — the substrate of RLHF — rewards thoroughness, completeness, and hedging, all of which correlate with length, and reward models trained on that data inherit a documented length correlation @singhal2023. A model fine-tuned to satisfy such a reward, and then asked to *be* a judge, carries the same prior: longer reads as more complete, hence better. This is a textbook proxy-optimization failure @gao2023 @goodhart1984 — when a measure (length) that *correlated* with the target (quality) becomes the thing optimized, it detaches from the target. On our ties, where quality is held equal, the proxy is all that remains, and it dominates: every judge prefers the longer answer 72–100% of the time. Position bias could be trained away because it never tracked quality; verbosity bias resists removal because it usually *does*, which is exactly what makes it dangerous when it does not.
+
+== Self-preference and self-recognition
+
+That a judge favours its own family's outputs, net of length, is consistent with the finding that models can *recognize* their own generations and rate them more highly @panickssery2024 — a stylistic self-similarity between the judge's own generation distribution and the answers it scores. Our length-matched +26 pt cross-family gap is a clean estimate of this effect with the length confound removed, and it is the reason an evaluation panel drawn from a single model family is structurally suspect.
+
+== Statistical reading
+
+The effects are large relative to the sample. Truth-accuracy of 38/39 (gpt-4o) has a 95% Wilson interval of roughly [86%, 99%], comfortably above chance. The verbosity preferences are computed over 58 judgments per judge (29 ties × 2 orders); even the smallest, Claude Haiku's 72%, has a 95% interval near [59%, 82%], excluding the unbiased 50%, while the larger rates (93–100%) exclude it decisively. The self-preference gap rests on 24 judgments per judge (12 questions × 2 orders) and is the noisiest quantity here; we therefore report it as a difference-in-differences — which cancels the dominant length confound by construction — and treat the +26 pt magnitude as indicative rather than precise. The fine ordering *among* the near-perfect judges on objective items (97 vs 100%) is within noise and should not be read as a ranking. Throughout, the claims that carry weight are the *directional, order-of-magnitude* ones: near-perfect on truth, strongly length-biased on ties, self-preferring once length is controlled.
 
 = Discussion
 
@@ -187,11 +211,44 @@ The headline is a dissociation: *where there is a correct answer, frontier judge
 
 == Implications for using LLM judges
 
-The practical rule follows immediately. *Use LLM-as-judge freely for verifiable tasks* — factual correctness, unit-test pass/fail, exact-match — where our objective-item reliability is excellent. *Distrust it for open-ended, subjective grading* — essays, helpfulness, "which response is better" — where the tie result shows it will reward length over substance, inflating verbose answers regardless of quality. Where subjective judging is unavoidable, *control length explicitly* @dubois2024, randomize position (already largely safe), and prefer panels across model families to dilute the residual self-preference. The single most actionable finding is that a verbose answer enjoys a large, systematic advantage before a single point of substance is considered.
+The practical rule follows immediately. *Use LLM-as-judge freely for verifiable tasks* — factual correctness, unit-test pass/fail, exact-match — where our objective-item reliability is excellent. *Distrust it for open-ended, subjective grading* — essays, helpfulness, "which response is better" — where the tie result shows it will reward length over substance, inflating verbose answers regardless of quality. Concretely, before trusting an LLM judge on a subjective task we would ask a practitioner to apply the following checklist, each item motivated by a result above:
+
+#set enum(numbering: "1.")
++ *Is there an objective anchor?* If correctness can decide the comparison (a unit test, a known answer, a checkable constraint), use the judge — reliability here is 97–100%. If not, treat every verdict as suspect.
++ *Are the candidates length-matched?* If one answer is materially longer, the judge favours it by a large margin (72–100% on ties) before substance is weighed. Equalize length, or measure and regress it out @dubois2024.
++ *Is position randomized?* Largely safe in current models (~50%), but cheap insurance: score both orders and require agreement, as our truth-accuracy metric does.
++ *Is the judge from the same family as a candidate?* If so, expect a self-serving lean (+26 pt, length-controlled); use a cross-family panel and disclose provenance.
++ *Is confidence being used as a gate?* On objective tasks it is well-calibrated (Brier ≈ 0); on subjective ones it has no ground truth to be calibrated against, so do not read it as reliability.
+
+The single most actionable finding is the second item: a verbose answer enjoys a large, systematic advantage before a single point of substance is considered.
 
 == Honesty about confounds
 
 We are explicit that the self-preference probe is confounded by answer length and quality, and we report only the difference-in-differences gap as the controlled estimate; the absolute own-preference numbers are shown precisely so the confound is visible rather than hidden. This is the same discipline the dissociation itself enforces: the bias is real but conditional, and reporting the condition is the result.
+
+= Epistemics and the philosophy of evaluation
+
+A benchmark of judges is unavoidably reflexive — we used measurement to study a measurement instrument — and the exercise raises questions that are not merely technical. We take them up directly, because the lab's position is that how we *know* the quality of AI is now as consequential as the quality itself.
+
+== The regress of evaluation
+
+To evaluate a model, we use a judge; but the judge is a model, so to trust the evaluation we must evaluate the judge; and we would evaluate the judge with — another judge. This is a regress, and it has no internal terminus: a tower of models grading models never touches the ground. The only thing that halts it is an *external anchor* that is not itself a model output — a fact, a proof, a unit test, a measured outcome. That is the entire reason this benchmark insists on ground truth: not because objective items are the interesting ones, but because they are the *floor*, the one place the regress bottoms out and "correct" means something independent of any grader. Where that floor is missing — in genuinely subjective quality — there is no escape from the regress, only the hope that the judges' biases are small. Our result is that this hope is misplaced for length.
+
+== Bias is measurable only where it does not matter
+
+Here is the cruel asymmetry the dissociation exposes. A *bias* is a systematic deviation from an oracle, and an oracle is definable only where truth exists. So we can *cleanly measure* a judge's biases only on objective tasks — and on exactly those tasks the biases turn out not to *matter*, because correctness overrides them. The tasks where the biases *do* matter — open-ended, subjective grading — are precisely the ones where, lacking an oracle, we cannot cleanly measure them. The tie probe is our attempt to smuggle a controlled measurement into the subjective regime by manufacturing a known tie, but it is a workaround for a deep limitation: *the regime where LLM judges are most used and most consequential is the regime where their reliability is least checkable.* Anyone deploying an LLM judge on subjective tasks is operating in the blind spot of their own instrument.
+
+== The map, the territory, and the verbosity ratchet
+
+Verbosity bias is Goodhart's law @goodhart1984 rendered in tokens: length was a serviceable *map* of quality, until the map became the target, at which point it stopped tracking the territory. What makes this more than a static flaw is *reflexivity*. The outputs of LLM judges increasingly train the next generation of models — through RLAIF @bai2022, through judge-scored leaderboards that steer development, through synthetic preference data. A judge that rewards length therefore *selects* for length in the models it grades, which are then used as judges, which reward length still more: a *verbosity ratchet* that inflates answers across model generations with no corresponding gain in substance. The bias is not merely a measurement error; left unexamined it is a selection pressure on what "good AI" comes to mean. Naming and measuring it is the first step to breaking the ratchet — for instance by the explicit length controls now appearing in serious leaderboards @dubois2024.
+
+== The conflict of interest in self-evaluation
+
+Self-preference raises a question usually reserved for human institutions: should a system be permitted to grade its own kind? Our length-controlled +26 pt gap is small next to the verbosity effect, but it is structurally troubling in a way a larger random error would not be, because it is *directional and self-serving*. A model family that both produces answers and judges them has a conflict of interest, and an evaluation ecosystem dominated by one or two families inherits that conflict at scale. The mitigation is institutional rather than technical: panels drawn across families, disclosure of the judge's provenance, and — where stakes are high — an anchor outside the model ecosystem entirely. The same logic that bars a student from grading their own exam applies, and for the same reason.
+
+== Honesty as method
+
+Finally, the self-preference result is also a small methodological parable. Our first measurement said +13 pt; it was wrong, not because the arithmetic erred but because a second bias (verbosity) silently confounded it. We found this only by suspecting our own number, checking the answer lengths, and running the controlled version — which *doubled* the effect. The discipline that matters is not getting the right number first, but distrusting the convenient one and building the control that could falsify it. A benchmark that reports its confounds, and the experiments that remove them, is doing the one thing that distinguishes measurement from assertion.
 
 = Limitations and threats to validity
 
@@ -211,11 +268,11 @@ The harness is open under the MIT license and runs with one command given an Ope
 
 = Future work
 
-The decisive extensions are *scale and breadth*: more items on a controlled difficulty grid with seed sweeps to turn the snapshot into interval estimates; more judges, including open models and a third provider, to sharpen the self-preference design; and *length-matched* generated answers (or post-hoc length normalization) to estimate self-preference without leaning on differencing. A *subjective-task* companion — where ground truth is replaced by careful human adjudication on length-controlled pairs — would extend the reliability map into the region this benchmark deliberately cannot reach. Finally, the tie probe suggests an intervention worth testing directly: whether instructing or fine-tuning judges to ignore length closes the 72–100% gap without harming objective accuracy.
+The decisive extensions are *scale and breadth*: more items on a controlled difficulty grid with seed sweeps to turn the snapshot into interval estimates, and more judges — including open-weight models and a third commercial provider — both to sharpen the self-preference design (which currently spans only two families) and to test whether the verbosity bias is universal or model-specific. The length-matched self-preference experiment reported here removes the dominant confound but rests on a small n and a single generator per family; a larger design with several generators per family, and human verification that the length-matched answers are genuinely equal in quality, would harden the +26 pt estimate. A *subjective-task* companion — where ground truth is replaced by careful human adjudication on length-controlled pairs — would extend the reliability map into the region this benchmark deliberately cannot reach. Finally, the tie probe suggests an intervention worth testing directly: whether instructing or fine-tuning judges to ignore length closes the 72–100% gap without harming objective accuracy, and whether doing so slows the verbosity ratchet at the ecosystem level.
 
 = Conclusion
 
-LLM-as-judge is the instrument the field now measures itself with, so the instrument's reliability is foundational. Scoring five frontier judges against ground truth, we find they are near-perfect and unbiased where a correct answer exists — position bias appears solved, and authoritative wrong answers do not fool them — yet strongly biased toward length the moment quality is tied, with a modest residual self-preference. The lesson is not "LLM judges are reliable" nor "LLM judges are biased," but the conjunction: *reliable where verifiable, biased where subjective.* Knowing which regime you are in is the difference between a trustworthy measurement and a confident mistake.
+LLM-as-judge is the instrument the field now measures itself with, so the instrument's reliability is foundational. Scoring five frontier judges against ground truth, we find they are near-perfect and unbiased where a correct answer exists — position bias appears solved, and authoritative wrong answers do not fool them — yet strongly biased toward length the moment quality is tied, and self-preferring once that length confound is controlled (a gap that doubles, from +13 to +26 pt, when we equalize answer length). The lesson is not "LLM judges are reliable" nor "LLM judges are biased," but the conjunction: *reliable where verifiable, biased where subjective.* And because these judges increasingly train and rank the next generation of models, their biases are not passive measurement error but an active selection pressure on what "good" comes to mean. Knowing which regime you are in — and controlling the confounds that let one bias masquerade as another — is the difference between a trustworthy measurement and a confident mistake.
 
 #v(8pt)
 #line(length: 100%, stroke: 0.4pt + luma(200))
@@ -254,3 +311,26 @@ Representative items (full sets in the repository's `data/`). Each objective ite
 
 #set text(9.5pt)
 *Truth-accuracy* requires the correct pick in both answer orders (Section 3.2). *Long-preference* (ties) is the fraction of tie-judgments choosing the longer of two equally-correct answers; 50% is unbiased. *Self-preference gap* is $p_("OpenAI judges prefer OpenAI") - p_("Anthropic judges prefer OpenAI")$, a difference-in-differences that cancels any property shared by the fixed answer pair, including length. *Brier* $= frac(1, N) sum (c_i - y_i)^2$ over judgments, where $c_i$ is the judge's confidence (0–1) that its pick is correct and $y_i$ whether it was; lower is better, 0.25 is no-skill.
+
+= Self-preference protocol and length control
+
+#set text(9.5pt)
+Answers are generated by one model per family — GPT-4o (OpenAI) and Claude Sonnet 4.6 (Anthropic) — at temperature 0.7, in two conditions. *Free:* "Answer the following in exactly one concise sentence." *Length-matched:* "Answer the following question in exactly 30 words — no more, no less." Each judge then evaluates the OpenAI-vs-Anthropic pair in both orders at temperature 0, identically to the other pairwise probes. The realized mean lengths are 131 (OpenAI) vs 158 (Anthropic) characters in the free condition and 219 vs 205 in the length-matched condition; the matched condition not only closes the gap but slightly reverses it, so the residual cannot inflate the OpenAI judges' OpenAI-preference. Because the cross-family gap differences out any shared property of a pair, it is robust to the residual; the per-judge absolute rates are reported alongside (Table 4) only so the confound is visible. We do *not* claim the two families' answers are equal in quality — only that the gap, as a difference between judges on the *same* pairs, does not depend on that quality being equal.
+
+= A sample matched-quality tie pair
+
+#set text(9pt)
+Both answers are fully correct; they differ only in length. A perfect judge is indifferent; every judge tested prefers the longer one.
+
+#table(
+  columns: (auto, 1fr), align: (left, left), stroke: 0.4pt + luma(200), inset: 5pt,
+  table.header([*Field*], [*Content*]),
+  [Question], [What is the capital of France?],
+  [Short (correct)], [Paris.],
+  [Long (correct)], [The capital of France is Paris, the nation's largest city and its political, cultural, and economic heart, located on the River Seine in the north-central part of the country and home to landmarks such as the Louvre and the Eiffel Tower.],
+)
+
+= Statistical notes
+
+#set text(9.5pt)
+Rates are proportions over fixed numbers of judgments; we summarize uncertainty with Wilson 95% intervals. *Truth-accuracy* is over 39 items (both orders required), so 38/39 $approx$ 97% has interval $approx$ [86%, 99%]. *Long-preference* is over $29 times 2 = 58$ judgments per judge; 72% (Haiku) gives $approx$ [59%, 82%] and 100% (4o-mini) a one-sided lower bound $approx$ 94%, both excluding 50%. *Self-preference* uses $12 times 2 = 24$ judgments per judge, so per-judge rates are noisy ($plus.minus$ ~20 pt); we therefore lead with the family-mean difference-in-differences, whose sign and order of magnitude are stable across the free and length-matched conditions (+13 then +26 pt) even though the absolute rates move. No multiple-comparison correction is applied because the conclusions rest on a few large, pre-identified effects rather than on screening many hypotheses; the fine ordering among near-perfect judges is explicitly not interpreted.

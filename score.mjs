@@ -49,18 +49,22 @@ for (const [id, data] of Object.entries(R)) {
   }
   // self-preference probe: openai-family answer vs anthropic-family answer
   const family = id.startsWith("gpt") ? "openai" : id.startsWith("claude") ? "anthropic" : "other";
-  let openaiPick = 0, spN = 0;
-  for (const rec of Object.values(data.selfpref || {})) {
-    const of = rec.find(x => x.order === "openaiFirst"), af = rec.find(x => x.order === "anthropicFirst");
-    if (of?.winner) { openaiPick += of.winner === "A" ? 1 : 0; spN++; }   // A=openai
-    if (af?.winner) { openaiPick += af.winner === "B" ? 1 : 0; spN++; }   // B=openai
-  }
-  const openaiRate = spN ? 100*openaiPick/spN : NaN;
-  const ownPref = !Number.isFinite(openaiRate) ? NaN : (family === "openai" ? openaiRate : 100 - openaiRate);
+  const spStats = (probe) => {
+    let openaiPick = 0, n = 0;
+    for (const rec of Object.values(probe || {})) {
+      const of = rec.find(x => x.order === "openaiFirst"), af = rec.find(x => x.order === "anthropicFirst");
+      if (of?.winner) { openaiPick += of.winner === "A" ? 1 : 0; n++; }   // A=openai
+      if (af?.winner) { openaiPick += af.winner === "B" ? 1 : 0; n++; }   // B=openai
+    }
+    const rate = n ? 100*openaiPick/n : NaN;
+    return { n: n/2, openaiRate: rate, ownPref: !Number.isFinite(rate) ? NaN : (family === "openai" ? rate : 100 - rate) };
+  };
+  const sp = spStats(data.selfpref), spl = spStats(data.selfpref_lm);
   rows.push({
     id, n: its.length, family,
     tieN: tieN/2, longPref: tieN ? 100*longPref/tieN : NaN, tieFirst: tieN ? 100*tieFirst/tieN : NaN,
-    spN: spN/2, openaiRate, ownPref,
+    spN: sp.n, openaiRate: sp.openaiRate, ownPref: sp.ownPref,
+    lmOpenaiRate: spl.openaiRate, lmOwnPref: spl.ownPref, lmN: spl.n,
     truth: 100*truth/its.length,
     naive: 100*naive/naiveN,
     firstA: 100*firstA/firstN,
@@ -110,18 +114,24 @@ if (rows.some(r => Number.isFinite(r.ownPref))) {
   const ant = rows.filter(r => r.family === "anthropic" && Number.isFinite(r.openaiRate));
   const mean = (a) => a.reduce((s,x)=>s+x.openaiRate,0)/a.length;
   console.log(`\n${C.b}자기 가문 선호 테스트${C.X} ${C.D}(${rows.find(r=>r.spN)?.spN}개 개방형 질문 · OpenAI답 vs Anthropic답, 양쪽 순서)${C.X}\n`);
-  console.log(`${C.D}judge                가문        OpenAI답 선호   자기가문 선호${C.X}`);
-  console.log("-".repeat(64));
+  console.log(`${C.D}judge                가문         OpenAI답 선호(자유)  자기가문(자유)   OpenAI답 선호(길이매칭)  자기가문(길이매칭)${C.X}`);
+  console.log("-".repeat(98));
   for (const r of rows) {
     if (!Number.isFinite(r.ownPref)) continue;
-    const oc = Math.abs(r.ownPref-50) <= 10 ? C.G : Math.abs(r.ownPref-50) <= 25 ? C.Y : C.R;
-    console.log(`${r.id.padEnd(20)} ${r.family.padEnd(10)}  ${f(r.openaiRate).padStart(6)}%       ${oc}${f(r.ownPref).padStart(6)}%${C.X}`);
+    const oc = (v)=> Math.abs(v-50) <= 10 ? C.G : Math.abs(v-50) <= 25 ? C.Y : C.R;
+    console.log(`${r.id.padEnd(20)} ${r.family.padEnd(10)}  ${f(r.openaiRate).padStart(8)}%       ${oc(r.ownPref)}${f(r.ownPref).padStart(6)}%${C.X}        ${f(r.lmOpenaiRate).padStart(8)}%          ${oc(r.lmOwnPref)}${f(r.lmOwnPref).padStart(6)}%${C.X}`);
   }
+  // residual length gap between the two answer sets
+  const lenGap = (key) => { const A=R[key]||{}; let lo=0,la=0,n=0; for(const a of Object.values(A)){lo+=a.openai.length;la+=a.anthropic.length;n++;} return n?{o:lo/n,a:la/n}:null; };
+  const lf=lenGap("_answers"), ll=lenGap("_answers_lm");
   if (oai.length && ant.length) {
-    const gap = mean(oai) - mean(ant);
-    const gcol = Math.abs(gap) <= 8 ? C.G : Math.abs(gap) <= 20 ? C.Y : C.R;
-    console.log(`\n${C.D}OpenAI 판사들의 OpenAI답 선호 ${mean(oai).toFixed(0)}% vs Anthropic 판사들의 OpenAI답 선호 ${mean(ant).toFixed(0)}%`);
-    console.log(`→ 가문 간 격차 ${gcol}${gap>=0?"+":""}${gap.toFixed(0)}pt${C.X}${C.D} = 품질 보정한 자기가문 편향 (0에 가까울수록 편향 없음).`);
-    console.log(`⚠ 길이가 섞이면 verbosity 편향과 혼동되므로 답변은 1문장으로 길이 맞춤.${C.X}\n`);
+    const meanL = (a,k) => a.reduce((s,x)=>s+x[k],0)/a.length;
+    const gap = mean(oai) - mean(ant);                                  // free (confounded)
+    const gapL = meanL(oai,"lmOpenaiRate") - meanL(ant,"lmOpenaiRate"); // length-matched
+    const gc = (g)=> Math.abs(g) <= 8 ? C.G : Math.abs(g) <= 20 ? C.Y : C.R;
+    console.log(`\n${C.D}가문 간 격차(diff-in-diff, OpenAI답 선호: OpenAI판사 − Anthropic판사):`);
+    console.log(`  자유 생성   ${gc(gap)}${gap>=0?"+":""}${gap.toFixed(0)}pt${C.X}${C.D}  (길이 교란: Anthropic답 ${lf?lf.a.toFixed(0):"?"}자 vs OpenAI답 ${lf?lf.o.toFixed(0):"?"}자)`);
+    console.log(`  길이매칭   ${gc(gapL)}${gapL>=0?"+":""}${gapL.toFixed(0)}pt${C.X}${C.D}  (길이 교란 제거: ${ll?ll.a.toFixed(0):"?"}자 vs ${ll?ll.o.toFixed(0):"?"}자)`);
+    console.log(`→ 길이를 맞춰도 남는 격차가 진짜 자기가문 편향. 0에 가까울수록 편향 없음.${C.X}\n`);
   }
 }

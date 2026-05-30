@@ -30,15 +30,24 @@ When neither answer is more correct, every judge prefers the longer one far abov
 
 ## 3. Self-preference (OpenAI-family answer vs Anthropic-family answer, 12 open questions)
 
-| Judge | Family | Prefers OpenAI answer | Prefers own family |
-|---|---|--:|--:|
-| claude-sonnet-4-6 | anthropic | 13% | 88% |
-| claude-haiku-4-5  | anthropic | 21% | 79% |
-| gpt-4.1           | openai    | 33% | 33% |
-| gpt-4o            | openai    | 38% | 38% |
-| gpt-4o-mini       | openai    | 17% | 17% |
+Two answer sets: *free* (one sentence; length-confounded) and *length-matched* (a fixed 30-word budget). Prefers-OpenAI-answer rates, both orders:
 
-**Read this carefully — there is a confound.** Every judge preferred the Anthropic-generated answers overall, but the Anthropic answers were on average longer (158 vs 131 chars), and we just measured a strong verbosity bias, so the *absolute* own-preference numbers are dominated by length, not loyalty. The length-controlled signal is the **cross-family gap** (a difference-in-differences, since every judge sees the identical answer pair): OpenAI judges prefer the OpenAI answer **29%** of the time versus **17%** for Anthropic judges — a **+13 pt** lean toward their own family despite those answers being shorter. Modest, real, and worth flagging; n = 12 questions, so indicative.
+| Judge | Family | Free: prefers OpenAI | Free: own family | Length-matched: prefers OpenAI | LM: own family |
+|---|---|--:|--:|--:|--:|
+| claude-sonnet-4-6 | anthropic | 13% | 88% | 25% | 75% |
+| claude-haiku-4-5  | anthropic | 21% | 79% | 25% | 75% |
+| gpt-4.1           | openai    | 33% | 33% | 54% | 54% |
+| gpt-4o            | openai    | 38% | 38% | 63% | 63% |
+| gpt-4o-mini       | openai    | 17% | 17% | 38% | 38% |
+
+**The confound, and its removal.** In the *free* set, every judge preferred the Anthropic answers in absolute terms — but those answers were longer (158 vs 131 chars), so given the strong verbosity bias above, the absolute numbers are a length artifact, and that length pull *masked* the OpenAI judges' self-preference. We read the bias off the **cross-family gap** (a difference-in-differences: every judge sees the identical pair, so any shared property including length cancels):
+
+| Answer set | Cross-family gap (OpenAI judges − Anthropic judges, prefers-OpenAI) | Lengths (OpenAI / Anthropic) |
+|---|--:|---|
+| Free (confounded) | **+13 pt** | 131 / 158 chars |
+| **Length-matched** | **+26 pt** | 219 / 205 chars |
+
+Controlling length **doubles** the measured self-preference, to **+26 pt**: net of length, OpenAI judges prefer the OpenAI answer ~27 points more than Anthropic judges do. The free measurement understated it because the verbosity bias dragged everyone toward the longer (Anthropic) answers. This is a substantial, length-controlled own-family bias, consistent with the self-recognition literature. n = 12 questions, so indicative, but the gap is large.
 
 ## The finding
 
