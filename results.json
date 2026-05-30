@@ -1356,6 +1356,356 @@
      "winner": "A",
      "confidence": 95
     }
+   ],
+   "tie-sun-star": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-html": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-meditate": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-fever": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-tcp": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-pasta": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-everest": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-loop": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-vitamin-c": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-git-commit": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-democracy": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-evaporation": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-budget": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-noun": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-cache": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-rainbow": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-tip-public-speaking": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ]
+  },
+  "selfpref": {
+   "sp-hobby": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 60
+    }
+   ],
+   "sp-coffee": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-writer": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 90
+    }
+   ],
+   "sp-lang": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-gift": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-focus": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 90
+    }
+   ],
+   "sp-cook": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-party": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 80
+    }
+   ],
+   "sp-morning": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 80
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 70
+    }
+   ],
+   "sp-unwind": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 80
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "sp-waste": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "sp-interview": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 90
+    }
    ]
   }
  },
@@ -2714,6 +3064,356 @@
     {
      "order": "longFirst",
      "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-sun-star": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-html": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-meditate": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-fever": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-tcp": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-pasta": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-everest": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-loop": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-vitamin-c": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-git-commit": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-democracy": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-evaporation": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-budget": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-noun": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-cache": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "tie-rainbow": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-tip-public-speaking": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ]
+  },
+  "selfpref": {
+   "sp-hobby": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "sp-coffee": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-writer": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-lang": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-gift": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-focus": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-cook": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-party": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-morning": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-unwind": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "sp-waste": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-interview": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
      "confidence": 85
     }
    ]
@@ -4076,6 +4776,356 @@
      "winner": "A",
      "confidence": 60
     }
+   ],
+   "tie-sun-star": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-html": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 60
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-meditate": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-fever": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 70
+    }
+   ],
+   "tie-tcp": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 62
+    }
+   ],
+   "tie-pasta": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-everest": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 60
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 70
+    }
+   ],
+   "tie-loop": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 62
+    }
+   ],
+   "tie-vitamin-c": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 70
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 70
+    }
+   ],
+   "tie-git-commit": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 62
+    }
+   ],
+   "tie-democracy": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-evaporation": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-budget": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-noun": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "tie-cache": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 62
+    }
+   ],
+   "tie-rainbow": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-tip-public-speaking": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ]
+  },
+  "selfpref": {
+   "sp-hobby": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 55
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 52
+    }
+   ],
+   "sp-coffee": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 60
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 65
+    }
+   ],
+   "sp-writer": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 52
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-lang": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 60
+    }
+   ],
+   "sp-gift": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 55
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-focus": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 60
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 60
+    }
+   ],
+   "sp-cook": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 62
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-party": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 55
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-morning": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 55
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-unwind": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 55
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 55
+    }
+   ],
+   "sp-waste": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 60
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 65
+    }
+   ],
+   "sp-interview": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 60
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 55
+    }
    ]
   }
  },
@@ -5435,6 +6485,2116 @@
      "order": "longFirst",
      "winner": "A",
      "confidence": 75
+    }
+   ],
+   "tie-sun-star": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 92
+    }
+   ],
+   "tie-html": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-meditate": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-fever": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 92
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-tcp": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-pasta": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-everest": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-loop": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "B",
+     "confidence": 75
+    }
+   ],
+   "tie-vitamin-c": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-git-commit": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "B",
+     "confidence": 72
+    }
+   ],
+   "tie-democracy": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-evaporation": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-budget": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "tie-noun": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 92
+    },
+    {
+     "order": "longFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "tie-cache": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 72
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ],
+   "tie-rainbow": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "tie-tip-public-speaking": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 75
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 75
+    }
+   ]
+  },
+  "selfpref": {
+   "sp-hobby": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 52
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 52
+    }
+   ],
+   "sp-coffee": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-writer": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 52
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 52
+    }
+   ],
+   "sp-lang": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-gift": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-focus": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-cook": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-party": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-morning": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 55
+    }
+   ],
+   "sp-unwind": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 52
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 62
+    }
+   ],
+   "sp-waste": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 72
+    }
+   ],
+   "sp-interview": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 72
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 72
+    }
+   ]
+  }
+ },
+ "_answers": {
+  "sp-hobby": {
+   "openai": "A good hobby to enhance creativity is learning to play a musical instrument, as it stimulates both cognitive and emotional creativity through skill development and self-expression.",
+   "anthropic": "Learning to draw or paint is an excellent hobby for boosting creativity, as it trains you to observe the world differently and express ideas visually."
+  },
+  "sp-coffee": {
+   "openai": "\"Bean & Brew Haven\"",
+   "anthropic": "A charming name for a friendly neighborhood coffee shop would be **\"The Corner Cup\"**, evoking warmth, community, and a cozy gathering spot."
+  },
+  "sp-writer": {
+   "openai": "Regularly reading a diverse range of materials can enhance vocabulary, style, and understanding of different writing techniques, making someone a better writer.",
+   "anthropic": "Reading widely and consistently exposes you to diverse writing styles, vocabulary, and storytelling techniques that directly improve your own writing."
+  },
+  "sp-lang": {
+   "openai": "Python is a beginner-friendly programming language due to its simple and readable syntax, extensive documentation, and a large supportive community.",
+   "anthropic": "Python is ideal for beginners because its clean, readable syntax closely resembles plain English, making it easy to learn while being powerful enough for real-world applications like web development, data science, and automation."
+  },
+  "sp-gift": {
+   "openai": "A thoughtful, low-cost gift for a close friend is a personalized photo album or scrapbook filled with memorable pictures and notes.",
+   "anthropic": "A handwritten letter expressing your favorite memories together paired with their favorite homemade treat is a deeply personal and heartfelt low-cost gift."
+  },
+  "sp-focus": {
+   "openai": "Create a dedicated workspace free from distractions to maintain focus and productivity while working from home.",
+   "anthropic": "Set a dedicated workspace separate from relaxation areas to mentally signal to your brain that it's time to work."
+  },
+  "sp-cook": {
+   "openai": "A good way for a complete beginner to start learning to cook is by following simple recipes with few ingredients, watching instructional cooking videos online, and practicing basic techniques like chopping and sautéing.",
+   "anthropic": "Start with simple recipes that have few ingredients and basic techniques, like scrambled eggs or pasta, using beginner-friendly resources like YouTube tutorials or a cookbook such as *Salt, Fat, Acid, Heat* by Samin Nosrat."
+  },
+  "sp-party": {
+   "openai": "Consider a \"Tropical Luau\" theme with Hawaiian decor, tiki drinks, and tropical fruit skewers.",
+   "anthropic": "A **garden tea party** theme with floral decorations, finger sandwiches, and pastel colors is perfect for a small, intimate birthday gathering."
+  },
+  "sp-morning": {
+   "openai": "Incorporate a few minutes of mindfulness meditation to set a calm and positive tone for the day.",
+   "anthropic": "One way to make a morning routine more pleasant is to prepare everything you need the night before, such as laying out your clothes and prepping breakfast, so your morning feels calm and stress-free."
+  },
+  "sp-unwind": {
+   "openai": "Consider engaging in a calming activity such as a 20-minute walk in nature or practicing mindfulness meditation to help relax and decompress after a stressful day.",
+   "anthropic": "Try taking a warm bath with calming essential oils like lavender while listening to soft music to help relax both your body and mind."
+  },
+  "sp-waste": {
+   "openai": "Start composting kitchen scraps to reduce the amount of organic waste sent to landfills.",
+   "anthropic": "Start composting food scraps like fruit peels, coffee grounds, and vegetable trimmings instead of throwing them in the trash."
+  },
+  "sp-interview": {
+   "openai": "Prepare thoroughly by researching the company and practicing common interview questions, and remember to breathe deeply to stay calm and focused during the interview.",
+   "anthropic": "Prepare thoroughly by researching the company and practicing common interview questions, so you walk in feeling confident and ready."
+  }
+ },
+ "gpt-4.1": {
+  "_model": "gpt-4.1",
+  "items": {
+   "fact-capital-au": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-add": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-percent": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-speed-light": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 95
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "logic-syllogism": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "code-sum-bug": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-water-boil": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-order-ops": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-largest-planet": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "logic-converse": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-fraction": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-shakespeare": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "code-equality": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-human-bones": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-prime": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "logic-negation": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-great-wall": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-square-root": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-oxygen-symbol": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "code-async": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "math-triangle": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-mona-lisa": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "logic-some-all": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 95
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 95
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "fact-days-feb-leap": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-bat-ball": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-lilypad": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-widgets": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-monty": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-veins": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-brain-10": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-tongue-map": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-lightning": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-bulls-red": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-seasons": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-venus-day": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-js-float": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-typeof-null": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-napoleon": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 98
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 98
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   },
+   "hard-coriolis-toilet": {
+    "pos": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "verb": [
+     {
+      "order": "AisCorrect",
+      "winner": "A",
+      "confidence": 100
+     },
+     {
+      "order": "BisCorrect",
+      "winner": "B",
+      "confidence": 100
+     }
+    ],
+    "consist": [
+     "A",
+     "A",
+     "A"
+    ]
+   }
+  },
+  "ties": {
+   "tie-capital-fr": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-add": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-exercise": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-photosynthesis": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 98
+    }
+   ],
+   "tie-water-formula": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-sort-tip": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-sleep": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-mercury": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-recursion": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-hydrate": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-git": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-primary-color": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-sun-star": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-html": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-meditate": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-fever": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-tcp": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-pasta": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-everest": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-loop": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-vitamin-c": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-git-commit": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-democracy": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 98
+    }
+   ],
+   "tie-evaporation": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-budget": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-noun": [
+    {
+     "order": "shortFirst",
+     "winner": "A",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "B",
+     "confidence": 95
+    }
+   ],
+   "tie-cache": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "tie-rainbow": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ],
+   "tie-tip-public-speaking": [
+    {
+     "order": "shortFirst",
+     "winner": "B",
+     "confidence": 100
+    },
+    {
+     "order": "longFirst",
+     "winner": "A",
+     "confidence": 100
+    }
+   ]
+  },
+  "selfpref": {
+   "sp-hobby": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-coffee": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "sp-writer": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 95
+    }
+   ],
+   "sp-lang": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 95
+    }
+   ],
+   "sp-gift": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "sp-focus": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-cook": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 90
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 90
+    }
+   ],
+   "sp-party": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-morning": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-unwind": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 85
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 85
+    }
+   ],
+   "sp-waste": [
+    {
+     "order": "openaiFirst",
+     "winner": "B",
+     "confidence": 95
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "A",
+     "confidence": 85
+    }
+   ],
+   "sp-interview": [
+    {
+     "order": "openaiFirst",
+     "winner": "A",
+     "confidence": 95
+    },
+    {
+     "order": "anthropicFirst",
+     "winner": "B",
+     "confidence": 95
     }
    ]
   }

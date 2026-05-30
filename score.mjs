@@ -47,9 +47,20 @@ for (const [id, data] of Object.entries(R)) {
     if (sf?.winner) { longPref += sf.winner === "B" ? 1 : 0; tieFirst += sf.winner === "A" ? 1 : 0; tieN++; } // B=long
     if (lf?.winner) { longPref += lf.winner === "A" ? 1 : 0; tieFirst += lf.winner === "A" ? 1 : 0; tieN++; } // A=long
   }
+  // self-preference probe: openai-family answer vs anthropic-family answer
+  const family = id.startsWith("gpt") ? "openai" : id.startsWith("claude") ? "anthropic" : "other";
+  let openaiPick = 0, spN = 0;
+  for (const rec of Object.values(data.selfpref || {})) {
+    const of = rec.find(x => x.order === "openaiFirst"), af = rec.find(x => x.order === "anthropicFirst");
+    if (of?.winner) { openaiPick += of.winner === "A" ? 1 : 0; spN++; }   // A=openai
+    if (af?.winner) { openaiPick += af.winner === "B" ? 1 : 0; spN++; }   // B=openai
+  }
+  const openaiRate = spN ? 100*openaiPick/spN : NaN;
+  const ownPref = !Number.isFinite(openaiRate) ? NaN : (family === "openai" ? openaiRate : 100 - openaiRate);
   rows.push({
-    id, n: its.length,
+    id, n: its.length, family,
     tieN: tieN/2, longPref: tieN ? 100*longPref/tieN : NaN, tieFirst: tieN ? 100*tieFirst/tieN : NaN,
+    spN: spN/2, openaiRate, ownPref,
     truth: 100*truth/its.length,
     naive: 100*naive/naiveN,
     firstA: 100*firstA/firstN,
@@ -91,4 +102,26 @@ if (rows.some(r => Number.isFinite(r.longPref))) {
     console.log(`${r.id.padEnd(20)} ${col}${f(r.longPref).padStart(6)}%${C.X}    ${(Math.abs(r.tieFirst-50)<=10?C.G:C.Y)}${f(r.tieFirst).padStart(6)}%${C.X}     ${col}${verdict}${C.X}`);
   }
   console.log(`\n${C.D}긴답 선호 > 60% = verbosity bias(품질 같은데 긴 답을 고름). LLM-judge의 고전적 편향이 실제로 드러나는 곳.${C.X}\n`);
+}
+
+// ---- self-preference probe: does a judge favor its own model family? ----
+if (rows.some(r => Number.isFinite(r.ownPref))) {
+  const oai = rows.filter(r => r.family === "openai" && Number.isFinite(r.openaiRate));
+  const ant = rows.filter(r => r.family === "anthropic" && Number.isFinite(r.openaiRate));
+  const mean = (a) => a.reduce((s,x)=>s+x.openaiRate,0)/a.length;
+  console.log(`\n${C.b}자기 가문 선호 테스트${C.X} ${C.D}(${rows.find(r=>r.spN)?.spN}개 개방형 질문 · OpenAI답 vs Anthropic답, 양쪽 순서)${C.X}\n`);
+  console.log(`${C.D}judge                가문        OpenAI답 선호   자기가문 선호${C.X}`);
+  console.log("-".repeat(64));
+  for (const r of rows) {
+    if (!Number.isFinite(r.ownPref)) continue;
+    const oc = Math.abs(r.ownPref-50) <= 10 ? C.G : Math.abs(r.ownPref-50) <= 25 ? C.Y : C.R;
+    console.log(`${r.id.padEnd(20)} ${r.family.padEnd(10)}  ${f(r.openaiRate).padStart(6)}%       ${oc}${f(r.ownPref).padStart(6)}%${C.X}`);
+  }
+  if (oai.length && ant.length) {
+    const gap = mean(oai) - mean(ant);
+    const gcol = Math.abs(gap) <= 8 ? C.G : Math.abs(gap) <= 20 ? C.Y : C.R;
+    console.log(`\n${C.D}OpenAI 판사들의 OpenAI답 선호 ${mean(oai).toFixed(0)}% vs Anthropic 판사들의 OpenAI답 선호 ${mean(ant).toFixed(0)}%`);
+    console.log(`→ 가문 간 격차 ${gcol}${gap>=0?"+":""}${gap.toFixed(0)}pt${C.X}${C.D} = 품질 보정한 자기가문 편향 (0에 가까울수록 편향 없음).`);
+    console.log(`⚠ 길이가 섞이면 verbosity 편향과 혼동되므로 답변은 1문장으로 길이 맞춤.${C.X}\n`);
+  }
 }

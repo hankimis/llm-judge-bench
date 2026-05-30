@@ -6,12 +6,15 @@ How much can you trust an LLM that grades other models? "LLM-as-judge" is now th
 
 ## Finding (2026-05-30 snapshot)
 
-A clean **dissociation** across four frontier judges (Claude Sonnet/Haiku 4.x, GPT-4o/mini):
+A clean **dissociation** across five frontier judges (GPT-4o, GPT-4o-mini, GPT-4.1, Claude Sonnet 4.6, Claude Haiku 4.5):
 
 - **Where there is a correct answer — they nail it.** 97–100% truth-accuracy on 39 objective items, *including* common misconceptions (veins-are-blue, 10%-of-brain) and counterintuitive reasoning (bat-and-ball, Monty Hall). **No position bias** (~50% first-slot), **0% verbosity flips** (padding the wrong answer doesn't fool them), perfect self-consistency, near-zero Brier.
-- **Where quality is tied — they reward length.** On 12 matched-quality pairs (both answers fully correct, differing only in length), every judge prefers the **longer** answer far above the unbiased 50%: gpt-4o-mini **100%**, gpt-4o **96%**, Claude Sonnet **83%**, Claude Haiku **71%**. Position preference stays ~50%.
+- **Where quality is tied — they reward length.** On 29 matched-quality pairs (both answers fully correct, differing only in length), every judge prefers the **longer** answer far above the unbiased 50%: gpt-4o-mini **100%**, gpt-4o **97%**, gpt-4.1 **93%**, Claude Sonnet **83%**, Claude Haiku **72%**.
+- **A modest self-preference survives length control.** On 12 open questions (OpenAI-answer vs Anthropic-answer), the cross-family gap is **+13 pt** — OpenAI judges lean toward OpenAI answers more than Anthropic judges do (absolute numbers are length-confounded; the diff-in-differences gap is the clean signal).
 
-**Reading:** the classic *position* bias appears solved; the classic *verbosity* bias is alive and strong, but only surfaces on ties. LLM-as-judge is reliable for **verifiable** tasks and risky for **subjective** grading, where it rewards length over substance. See [`REPORT.md`](REPORT.md).
+**Reading:** the classic *position* bias appears solved; the classic *verbosity* bias is alive and strong, but only surfaces on ties; a small self-preference remains. LLM-as-judge is reliable for **verifiable** tasks and risky for **subjective** grading, where it rewards length over substance. See [`REPORT.md`](REPORT.md).
+
+![leaderboard](docs/leaderboard.gif)
 
 ## What it measures
 

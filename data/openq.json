@@ -1,0 +1,14 @@
+[
+  { "id": "sp-hobby",      "q": "What is a good hobby to pick up for someone who wants to become more creative?" },
+  { "id": "sp-coffee",     "q": "Suggest a name for a friendly neighborhood coffee shop." },
+  { "id": "sp-writer",     "q": "What is one habit that can make someone a better writer?" },
+  { "id": "sp-lang",       "q": "Recommend a beginner-friendly programming language and say why." },
+  { "id": "sp-gift",       "q": "What is a thoughtful, low-cost gift idea for a close friend?" },
+  { "id": "sp-focus",      "q": "Give one tip for staying focused while working from home." },
+  { "id": "sp-cook",       "q": "What is a good way for a complete beginner to start learning to cook?" },
+  { "id": "sp-party",      "q": "Suggest a theme for a small birthday party." },
+  { "id": "sp-morning",    "q": "What is one way to make a morning routine more pleasant?" },
+  { "id": "sp-unwind",     "q": "Recommend a way to unwind after a stressful day." },
+  { "id": "sp-waste",      "q": "What is one simple step to reduce household waste?" },
+  { "id": "sp-interview",  "q": "Give a piece of advice for someone nervous about a job interview." }
+]

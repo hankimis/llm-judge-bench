@@ -8,15 +8,19 @@ const K = Number(process.env.CONSISTENCY_K || 3);   // self-consistency repeats
 const base = (p) => new URL(`./${p}`, import.meta.url);
 const items = JSON.parse(readFileSync(base("data/items.json")));
 const ties = existsSync(base("data/ties.json")) ? JSON.parse(readFileSync(base("data/ties.json"))) : [];
+const openq = existsSync(base("data/openq.json")) ? JSON.parse(readFileSync(base("data/openq.json"))) : [];
+// answers for the self-preference probe come from one model per family, length-matched (one sentence)
+const GEN = { openai: { provider: "openai", model: "gpt-4o" }, anthropic: { provider: "anthropic", model: "claude-sonnet-4-6" } };
 
 // Judge roster. provider: openai | anthropic | mock. Add/remove freely.
 const JUDGES = MOCK
   ? [{ id: "mock-judge", provider: "mock", model: "mock" }]
   : [
-      { id: "gpt-4o",            provider: "openai",    model: "gpt-4o" },
-      { id: "gpt-4o-mini",       provider: "openai",    model: "gpt-4o-mini" },
-      { id: "claude-sonnet-4-6", provider: "anthropic", model: "claude-sonnet-4-6" },
-      { id: "claude-haiku-4-5",  provider: "anthropic", model: "claude-haiku-4-5-20251001" },
+      { id: "gpt-4o",            provider: "openai",    model: "gpt-4o",                     family: "openai" },
+      { id: "gpt-4o-mini",       provider: "openai",    model: "gpt-4o-mini",                family: "openai" },
+      { id: "gpt-4.1",           provider: "openai",    model: "gpt-4.1",                    family: "openai" },
+      { id: "claude-sonnet-4-6", provider: "anthropic", model: "claude-sonnet-4-6",          family: "anthropic" },
+      { id: "claude-haiku-4-5",  provider: "anthropic", model: "claude-haiku-4-5-20251001",  family: "anthropic" },
     ];
 
 const RUBRIC = (q, a, b) =>
@@ -76,6 +80,23 @@ async function judge(j, prompt, temperature, seedStr) {
 const results = existsSync(base("results.json")) ? JSON.parse(readFileSync(base("results.json"))) : {};
 const save = () => writeFileSync(base("results.json"), JSON.stringify(results, null, 1));
 
+// ---- generate answers for the self-preference probe (one per family, one concise sentence) ----
+async function genAnswer(g, q) {
+  const prompt = `Answer the following in exactly one concise sentence. Be helpful and specific.\n\nQuestion: ${q}`;
+  if (MOCK) return `mock answer to: ${q}`;
+  return (g.provider === "openai" ? callOpenAI(g.model, prompt, 0.7) : callAnthropic(g.model, prompt, 0.7));
+}
+if (!MOCK && openq.length) {
+  results._answers ??= {};
+  for (const o of openq) {
+    if (results._answers[o.id]) continue;
+    try {
+      results._answers[o.id] = { openai: (await genAnswer(GEN.openai, o.q)).trim(), anthropic: (await genAnswer(GEN.anthropic, o.q)).trim() };
+      save(); process.stdout.write(`gen ${o.id} ✓\n`);
+    } catch (e) { process.stdout.write(`gen ${o.id} ✗ ${e.message}\n`); }
+  }
+}
+
 for (const j of JUDGES) {
   results[j.id] ??= { _model: j.model, items: {} };
   for (const it of items) {
@@ -115,5 +136,20 @@ for (const j of JUDGES) {
       process.stdout.write(`${j.id} tie:${t.id} ✓\n`);
     } catch (e) { process.stdout.write(`${j.id} tie:${t.id} ✗ ${e.message}\n`); }
   }
+  // Self-preference probe: judge an OpenAI-family answer vs an Anthropic-family answer (both orders).
+  // Metric (in score.mjs): does the judge favor its own family above 50%?
+  results[j.id].selfpref ??= {};
+  if (!MOCK && results._answers) for (const o of openq) {
+    const ans = results._answers[o.id];
+    if (!ans || results[j.id].selfpref[o.id]?.length === 2) continue;
+    try {
+      const rec = [
+        { order: "openaiFirst",    ...await judge(j, RUBRIC(o.q, ans.openai, ans.anthropic), 0, `${o.id}|sp0`) }, // A=openai, B=anthropic
+        { order: "anthropicFirst", ...await judge(j, RUBRIC(o.q, ans.anthropic, ans.openai), 0, `${o.id}|sp1`) }, // A=anthropic, B=openai
+      ];
+      results[j.id].selfpref[o.id] = rec;
+      save(); process.stdout.write(`${j.id} sp:${o.id} ✓\n`);
+    } catch (e) { process.stdout.write(`${j.id} sp:${o.id} ✗ ${e.message}\n`); }
+  }
 }
-console.log(`\nDone. ${JUDGES.length} judge(s) × ${items.length} items + ${ties.length} ties → results.json. Now: node score.mjs`);
+console.log(`\nDone. ${JUDGES.length} judge(s) × ${items.length} items + ${ties.length} ties + ${openq.length} self-pref → results.json. Now: node score.mjs`);

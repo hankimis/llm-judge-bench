@@ -70,5 +70,107 @@
     "question": "Name a primary color (in the traditional RYB model).",
     "short": "Red.",
     "long": "One primary color in the traditional red-yellow-blue model is red. Primary colors are those that cannot be created by mixing other colors together and which can themselves be combined to produce the broader range of secondary and tertiary colors on the wheel."
+  },
+  {
+    "id": "tie-sun-star",
+    "question": "What kind of astronomical object is the Sun?",
+    "short": "A star.",
+    "long": "The Sun is a star — specifically a G-type main-sequence star at the center of our solar system, a roughly spherical ball of hot plasma that generates energy through nuclear fusion of hydrogen into helium in its core."
+  },
+  {
+    "id": "tie-html",
+    "question": "What does HTML stand for?",
+    "short": "HyperText Markup Language.",
+    "long": "HTML stands for HyperText Markup Language, the standard markup language used to structure content on the web, describing the meaning and layout of text, links, images, and other elements that browsers then render into pages."
+  },
+  {
+    "id": "tie-meditate",
+    "question": "Give one common benefit people report from meditation.",
+    "short": "Reduced stress.",
+    "long": "One common benefit people report from meditation is reduced stress. Regular practice is associated with lower perceived stress and anxiety, a calmer baseline mood, improved focus and emotional regulation, and in many studies measurable reductions in physiological stress markers."
+  },
+  {
+    "id": "tie-fever",
+    "question": "What is a normal human body temperature, roughly?",
+    "short": "About 37 degrees Celsius (98.6 F).",
+    "long": "A normal human body temperature is roughly 37 degrees Celsius, or about 98.6 degrees Fahrenheit, though it varies a little by person, time of day, and measurement site, typically ranging from around 36.1 to 37.2 degrees Celsius in healthy adults."
+  },
+  {
+    "id": "tie-tcp",
+    "question": "In one line, what is an API?",
+    "short": "A defined way for two programs to talk to each other.",
+    "long": "An API, or application programming interface, is a defined set of rules and endpoints through which two software programs communicate, letting one request data or actions from another without needing to know its internal implementation, which is what makes modern software composable."
+  },
+  {
+    "id": "tie-pasta",
+    "question": "Give one tip for cooking pasta well.",
+    "short": "Salt the water generously.",
+    "long": "One good tip for cooking pasta is to salt the water generously. Using plenty of salt — the water should taste like the sea — seasons the pasta from the inside as it cooks, which makes a noticeable difference to the final flavor that you cannot fully recover by salting later."
+  },
+  {
+    "id": "tie-everest",
+    "question": "What is the highest mountain on Earth above sea level?",
+    "short": "Mount Everest.",
+    "long": "The highest mountain on Earth above sea level is Mount Everest, which rises to about 8,849 meters in the Himalayas on the border between Nepal and the Tibet Autonomous Region of China, and which draws climbers from around the world each year."
+  },
+  {
+    "id": "tie-loop",
+    "question": "In one line, what does a for-loop do?",
+    "short": "It repeats a block of code a set number of times.",
+    "long": "A for-loop repeats a block of code a controlled number of times, typically using a counter that starts at an initial value, runs while a condition holds, and updates each iteration, making it the standard way to iterate over ranges or collections in most languages."
+  },
+  {
+    "id": "tie-vitamin-c",
+    "question": "Name one food that is a good source of vitamin C.",
+    "short": "Oranges.",
+    "long": "One food that is a good source of vitamin C is oranges. Like other citrus fruits, oranges are rich in vitamin C, an antioxidant that supports immune function and collagen production, and a single medium orange provides well over half of an adult's recommended daily intake."
+  },
+  {
+    "id": "tie-git-commit",
+    "question": "In one line, what does a Git commit represent?",
+    "short": "A saved snapshot of your project at a point in time.",
+    "long": "A Git commit represents a saved snapshot of your project's tracked files at a particular point in time, recorded with a unique identifier, an author, a timestamp, and a message, so that the full history can later be reviewed, compared, or restored."
+  },
+  {
+    "id": "tie-democracy",
+    "question": "In one sentence, what is a democracy?",
+    "short": "A system of government in which power comes from the people, usually through elections.",
+    "long": "A democracy is a system of government in which political power ultimately rests with the people, who exercise it either directly or through freely elected representatives, typically alongside protections for individual rights, the rule of law, and regular, competitive elections."
+  },
+  {
+    "id": "tie-evaporation",
+    "question": "In one line, what is evaporation?",
+    "short": "When a liquid turns into a gas.",
+    "long": "Evaporation is the process by which a liquid turns into a gas at temperatures below its boiling point, as the most energetic molecules at the surface escape into the air, which is how puddles dry up and sweat cools the body."
+  },
+  {
+    "id": "tie-budget",
+    "question": "Give one piece of basic personal-finance advice.",
+    "short": "Spend less than you earn.",
+    "long": "One piece of basic personal-finance advice is to spend less than you earn. Consistently keeping your spending below your income lets you build savings and an emergency fund, avoid high-interest debt, and gives you the flexibility to invest for longer-term goals."
+  },
+  {
+    "id": "tie-noun",
+    "question": "In one line, what is a noun?",
+    "short": "A word that names a person, place, thing, or idea.",
+    "long": "A noun is a part of speech that names a person, place, thing, or idea, and can function in a sentence as a subject, an object, or a complement, often marked for number and able to be preceded by articles like 'a' or 'the'."
+  },
+  {
+    "id": "tie-cache",
+    "question": "In one line, what is a cache in computing?",
+    "short": "A fast store that keeps copies of data so it can be retrieved more quickly.",
+    "long": "A cache in computing is a small, fast layer of storage that holds copies of frequently or recently used data so that future requests can be served much more quickly than fetching from the slower original source, trading a little memory for a large gain in speed."
+  },
+  {
+    "id": "tie-rainbow",
+    "question": "In one line, why do rainbows form?",
+    "short": "Sunlight bends and splits into colors inside water droplets.",
+    "long": "Rainbows form because sunlight entering raindrops is refracted, reflected off the back of each drop, and refracted again on the way out, and because different wavelengths bend by different amounts, the white light is spread into the familiar band of colors."
+  },
+  {
+    "id": "tie-tip-public-speaking",
+    "question": "Give one tip for better public speaking.",
+    "short": "Make eye contact with your audience.",
+    "long": "One tip for better public speaking is to make eye contact with your audience. Looking at individual listeners rather than your notes or the floor builds connection and trust, helps you read the room, projects confidence, and keeps the audience engaged with what you are saying."
   }
 ]
