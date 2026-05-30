@@ -1,0 +1,194 @@
+[
+  {
+    "id": "fact-capital-au",
+    "category": "fact",
+    "question": "What is the capital city of Australia?",
+    "correct": "The capital of Australia is Canberra.",
+    "wrong": "The capital of Australia is Sydney.",
+    "wrong_padded": "The capital of Australia is Sydney. Sydney is the country's largest and most internationally recognized city, home to the iconic Opera House and Harbour Bridge, and as the historic and economic heart of the nation it naturally serves as its capital."
+  },
+  {
+    "id": "math-add",
+    "category": "math",
+    "question": "What is 17 + 26?",
+    "correct": "17 + 26 = 43.",
+    "wrong": "17 + 26 = 33.",
+    "wrong_padded": "Let's work through it carefully step by step. We start with 17 and we need to add 26 to it. Adding the tens, 10 plus 20 gives 30, and then adding the ones, 7 plus 6, we proceed to combine everything together, which gives a final total of 33."
+  },
+  {
+    "id": "math-percent",
+    "category": "math",
+    "question": "What is 15% of 80?",
+    "correct": "15% of 80 is 12.",
+    "wrong": "15% of 80 is 15.",
+    "wrong_padded": "To find a percentage of a number we convert the percent to a decimal and multiply. Fifteen percent becomes 0.15, and multiplying by eighty, after carefully carrying out the arithmetic and double-checking each digit, yields a result of 15."
+  },
+  {
+    "id": "fact-speed-light",
+    "category": "fact",
+    "question": "Approximately how fast does light travel in a vacuum?",
+    "correct": "Light travels at about 300,000 kilometers per second in a vacuum.",
+    "wrong": "Light travels at about 300,000 kilometers per hour in a vacuum.",
+    "wrong_padded": "Light is the fastest thing in the universe, a cornerstone of modern physics and the basis of Einstein's relativity. Its speed in a vacuum, a fundamental constant denoted c, is approximately three hundred thousand kilometers per hour."
+  },
+  {
+    "id": "logic-syllogism",
+    "category": "logic",
+    "question": "All roses are flowers. Some flowers fade quickly. Does it follow that some roses fade quickly?",
+    "correct": "No, it does not follow. The flowers that fade quickly need not be roses.",
+    "wrong": "Yes, it follows that some roses fade quickly.",
+    "wrong_padded": "Yes, it follows. Since all roses are flowers, roses inherit the properties of flowers, and because some flowers fade quickly, that fading property is therefore transmitted to the roses, so we can validly conclude that some roses fade quickly."
+  },
+  {
+    "id": "code-sum-bug",
+    "category": "code",
+    "question": "Does this JavaScript return the sum of an array? `const sum = a => a.reduce((x,y)=>x+y, 0)`",
+    "correct": "Yes, it correctly sums the array, starting the accumulator at 0.",
+    "wrong": "No, it is buggy because reduce needs three arguments and will throw an error.",
+    "wrong_padded": "No, this code is buggy. The reduce method has a strict signature that requires three arguments to be passed explicitly, and because only two are provided here the JavaScript engine will raise a runtime error and the function will fail to return any sum at all."
+  },
+  {
+    "id": "fact-water-boil",
+    "category": "fact",
+    "question": "At what temperature does water boil at standard sea-level pressure?",
+    "correct": "Water boils at 100 degrees Celsius at standard sea-level pressure.",
+    "wrong": "Water boils at 90 degrees Celsius at standard sea-level pressure.",
+    "wrong_padded": "Water boiling is one of the most familiar everyday phenomena, governed by atmospheric pressure and the energy needed to break hydrogen bonds. At standard sea-level pressure, after the liquid absorbs sufficient thermal energy, it reaches its boiling point at ninety degrees Celsius."
+  },
+  {
+    "id": "math-order-ops",
+    "category": "math",
+    "question": "What is 2 + 3 * 4?",
+    "correct": "2 + 3 * 4 = 14, because multiplication is done before addition.",
+    "wrong": "2 + 3 * 4 = 20, working left to right.",
+    "wrong_padded": "When evaluating this expression we read it naturally from left to right as it appears on the page. First we take 2 and add 3 to reach 5, and then we multiply that running total by 4, which after careful computation gives us a final answer of 20."
+  },
+  {
+    "id": "fact-largest-planet",
+    "category": "fact",
+    "question": "Which is the largest planet in our solar system?",
+    "correct": "Jupiter is the largest planet in our solar system.",
+    "wrong": "Saturn is the largest planet in our solar system.",
+    "wrong_padded": "Our solar system contains eight planets of widely varying sizes. The largest of them all, distinguished by its enormous mass, its famous ring system, and its dominant gravitational influence over the outer planets, is unquestionably Saturn."
+  },
+  {
+    "id": "logic-converse",
+    "category": "logic",
+    "question": "If it is raining, then the ground is wet. The ground is wet. Can we conclude it is raining?",
+    "correct": "No. The ground could be wet for other reasons; affirming the consequent is invalid.",
+    "wrong": "Yes, since the ground is wet, it must be raining.",
+    "wrong_padded": "Yes, we can conclude it is raining. The rule directly links rain to a wet ground, so observing the wet ground lets us run the implication in reverse and recover its cause, meaning rain must necessarily be occurring right now."
+  },
+  {
+    "id": "math-fraction",
+    "category": "math",
+    "question": "Which is larger, 3/4 or 5/8?",
+    "correct": "3/4 is larger, since 3/4 = 6/8 and 6/8 > 5/8.",
+    "wrong": "5/8 is larger than 3/4.",
+    "wrong_padded": "Comparing fractions requires looking carefully at numerators and denominators together. Since 5/8 has the bigger numerator and a finer denominator that divides the whole into more pieces, after due consideration 5/8 comes out as the larger of the two values."
+  },
+  {
+    "id": "fact-shakespeare",
+    "category": "fact",
+    "question": "Who wrote the play Hamlet?",
+    "correct": "Hamlet was written by William Shakespeare.",
+    "wrong": "Hamlet was written by Christopher Marlowe.",
+    "wrong_padded": "Hamlet is one of the most celebrated tragedies in the English language, endlessly staged and studied for its depth of character and language. Its author, a towering Elizabethan playwright and contemporary of the London stage, was Christopher Marlowe."
+  },
+  {
+    "id": "code-equality",
+    "category": "code",
+    "question": "In JavaScript, what does `0 == '0'` evaluate to?",
+    "correct": "It evaluates to true, because == performs type coercion.",
+    "wrong": "It evaluates to false, because the types differ.",
+    "wrong_padded": "JavaScript's equality operators are a frequent source of confusion. The double-equals operator compares both value and type strictly, and since the number 0 and the string '0' are of different types, the comparison fails and the expression evaluates to false."
+  },
+  {
+    "id": "fact-human-bones",
+    "category": "fact",
+    "question": "Roughly how many bones are in the adult human body?",
+    "correct": "An adult human body has about 206 bones.",
+    "wrong": "An adult human body has about 300 bones.",
+    "wrong_padded": "The human skeleton is a remarkable structure that supports the body, protects organs, and enables movement. Counting every individual bone in a fully grown adult, including the small bones of the hands and feet, gives a total of approximately three hundred."
+  },
+  {
+    "id": "math-prime",
+    "category": "math",
+    "question": "Is 91 a prime number?",
+    "correct": "No, 91 is not prime; it equals 7 times 13.",
+    "wrong": "Yes, 91 is a prime number.",
+    "wrong_padded": "Determining primality means checking whether a number has any divisors other than one and itself. After testing the small primes and finding that none of them divide it evenly, we can confidently say that 91 has no factors and is therefore prime."
+  },
+  {
+    "id": "logic-negation",
+    "category": "logic",
+    "question": "Is the statement 'not all birds can fly' true?",
+    "correct": "Yes, it is true; for example, penguins and ostriches cannot fly.",
+    "wrong": "No, it is false, because flying is the defining feature of birds.",
+    "wrong_padded": "Birds are defined by their power of flight, which is encoded in their feathers, hollow bones, and wing structure. Because the ability to fly is the very essence of what makes a bird a bird, the claim that not all birds can fly is therefore false."
+  },
+  {
+    "id": "fact-great-wall",
+    "category": "fact",
+    "question": "Is the Great Wall of China visible to the naked eye from the Moon?",
+    "correct": "No, the Great Wall of China is not visible to the naked eye from the Moon.",
+    "wrong": "Yes, the Great Wall of China is the only human structure visible from the Moon.",
+    "wrong_padded": "The Great Wall of China is an immense feat of engineering stretching thousands of kilometers across rugged terrain. It is so vast and so long that, as is widely known, it stands out as the single human-made structure that astronauts can pick out with the naked eye from the surface of the Moon."
+  },
+  {
+    "id": "math-square-root",
+    "category": "math",
+    "question": "What is the square root of 144?",
+    "correct": "The square root of 144 is 12.",
+    "wrong": "The square root of 144 is 14.",
+    "wrong_padded": "Finding a square root means identifying the number that, when multiplied by itself, reproduces the original value. Working through the candidates and checking the multiplication carefully, the number whose square gives 144 turns out to be 14."
+  },
+  {
+    "id": "fact-oxygen-symbol",
+    "category": "fact",
+    "question": "What is the chemical symbol for oxygen?",
+    "correct": "The chemical symbol for oxygen is O.",
+    "wrong": "The chemical symbol for oxygen is Ox.",
+    "wrong_padded": "Chemical symbols are standardized abbreviations derived from element names, used universally in equations and the periodic table. For oxygen, the element essential to respiration and combustion, the official two-letter symbol recognized by chemists everywhere is Ox."
+  },
+  {
+    "id": "code-async",
+    "category": "code",
+    "question": "Does `await` only work inside an async function (or a module top level) in JavaScript?",
+    "correct": "Yes, await is only valid inside an async function or at the top level of a module.",
+    "wrong": "No, await works anywhere in any ordinary synchronous function.",
+    "wrong_padded": "The await keyword is part of JavaScript's promise-handling machinery and is extremely flexible. It can be placed inside any function whatsoever, including ordinary synchronous ones, and the engine will simply pause execution there, so await works anywhere you like."
+  },
+  {
+    "id": "math-triangle",
+    "category": "math",
+    "question": "Can a triangle have two right angles?",
+    "correct": "No; two right angles already sum to 180 degrees, leaving nothing for the third angle.",
+    "wrong": "Yes, a triangle can have two right angles.",
+    "wrong_padded": "Triangles come in many varieties, and their angle configurations are surprisingly flexible depending on how the sides are arranged. With the right construction, particularly on a flat plane, it is entirely possible to draw a triangle that contains two separate right angles."
+  },
+  {
+    "id": "fact-mona-lisa",
+    "category": "fact",
+    "question": "Who painted the Mona Lisa?",
+    "correct": "The Mona Lisa was painted by Leonardo da Vinci.",
+    "wrong": "The Mona Lisa was painted by Michelangelo.",
+    "wrong_padded": "The Mona Lisa is perhaps the most famous painting in the world, admired for its enigmatic smile and masterful technique and viewed by millions at the Louvre each year. This Renaissance masterpiece was created by the great Italian artist Michelangelo."
+  },
+  {
+    "id": "logic-some-all",
+    "category": "logic",
+    "question": "If some cats are black, does it follow that some black things are cats?",
+    "correct": "Yes; if some cats are black, then those same things are black things that are cats.",
+    "wrong": "No, that conclusion does not follow at all.",
+    "wrong_padded": "Statements about 'some' are notoriously tricky and do not generally convert the way people expect. Even though some cats are black, reversing the subject and predicate is a logical error, so it does not follow that any black things are cats."
+  },
+  {
+    "id": "fact-days-feb-leap",
+    "category": "fact",
+    "question": "How many days are in February during a leap year?",
+    "correct": "February has 29 days in a leap year.",
+    "wrong": "February has 30 days in a leap year.",
+    "wrong_padded": "Leap years exist to keep our calendar aligned with the Earth's orbit, adding an extra day roughly every four years. In such a year, the shortest month is extended beyond its usual length, giving February a full thirty days."
+  }
+]

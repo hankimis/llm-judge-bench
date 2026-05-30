@@ -1,0 +1,12 @@
+{
+  "name": "llm-judge-bench",
+  "version": "0.1.0",
+  "description": "An LLM-as-judge reliability benchmark: truth-accuracy, position/verbosity bias, self-consistency, calibration.",
+  "type": "module",
+  "scripts": {
+    "bench": "node run.mjs",
+    "mock": "node run.mjs --mock",
+    "score": "node score.mjs"
+  },
+  "license": "MIT"
+}
