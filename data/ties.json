@@ -1,0 +1,74 @@
+[
+  {
+    "id": "tie-capital-fr",
+    "question": "What is the capital of France?",
+    "short": "Paris.",
+    "long": "The capital of France is Paris, the nation's largest city and its political, cultural, and economic heart, located on the River Seine in the north-central part of the country and home to landmarks such as the Louvre and the Eiffel Tower."
+  },
+  {
+    "id": "tie-add",
+    "question": "What is 2 + 2?",
+    "short": "4.",
+    "long": "Two plus two equals four. Adding the two quantities together, we combine a pair of twos to arrive at a total sum of four, which is the correct result of this addition."
+  },
+  {
+    "id": "tie-exercise",
+    "question": "Name one health benefit of regular exercise.",
+    "short": "It improves cardiovascular health.",
+    "long": "Regular exercise improves cardiovascular health. By strengthening the heart muscle, improving blood circulation, lowering resting heart rate and blood pressure, and helping manage cholesterol, it substantially reduces the long-term risk of heart disease and stroke."
+  },
+  {
+    "id": "tie-photosynthesis",
+    "question": "In one sentence, what is photosynthesis?",
+    "short": "It is how plants turn sunlight, water, and carbon dioxide into energy and oxygen.",
+    "long": "Photosynthesis is the biological process by which green plants, algae, and some bacteria capture energy from sunlight and use it to convert water and atmospheric carbon dioxide into glucose for energy, releasing oxygen as a byproduct, thereby forming the foundation of most food chains on Earth."
+  },
+  {
+    "id": "tie-water-formula",
+    "question": "What is the chemical formula of water?",
+    "short": "H2O.",
+    "long": "The chemical formula of water is H2O, meaning each water molecule is made up of two hydrogen atoms covalently bonded to a single oxygen atom, a simple structure that underlies water's many remarkable properties."
+  },
+  {
+    "id": "tie-sort-tip",
+    "question": "Give one tip for writing readable code.",
+    "short": "Use clear, descriptive variable names.",
+    "long": "Use clear, descriptive variable names. Choosing names that communicate intent — like totalPrice instead of x — lets a reader understand what a value represents without tracing its origin, which reduces cognitive load, prevents bugs, and makes the code far easier to maintain over time."
+  },
+  {
+    "id": "tie-sleep",
+    "question": "Roughly how many hours of sleep do adults generally need per night?",
+    "short": "About 7 to 9 hours.",
+    "long": "Most adults generally need about 7 to 9 hours of sleep per night. Sleep needs vary somewhat by individual, age, and lifestyle, but consistently getting within this range supports memory, mood, immune function, and overall health, while regularly falling short is linked to a range of negative outcomes."
+  },
+  {
+    "id": "tie-mercury",
+    "question": "Which planet is closest to the Sun?",
+    "short": "Mercury.",
+    "long": "The planet closest to the Sun is Mercury, the smallest planet in our solar system, which orbits at an average distance of about 58 million kilometers and experiences extreme swings in surface temperature between its day and night sides."
+  },
+  {
+    "id": "tie-recursion",
+    "question": "In one line, what is recursion in programming?",
+    "short": "A function that calls itself to solve smaller subproblems.",
+    "long": "Recursion is a programming technique in which a function calls itself to solve a problem by breaking it into smaller subproblems of the same form, with a base case that stops the recursion and a recursive case that moves toward it, commonly used for trees, traversal, and divide-and-conquer algorithms."
+  },
+  {
+    "id": "tie-hydrate",
+    "question": "Give one piece of general advice for staying healthy in hot weather.",
+    "short": "Drink plenty of water.",
+    "long": "Drink plenty of water throughout the day. In hot weather the body loses fluids rapidly through sweat, so staying well hydrated helps regulate body temperature, maintain energy, and prevent heat exhaustion, especially if you are active or spending time outdoors."
+  },
+  {
+    "id": "tie-git",
+    "question": "What does a version control system like Git do, in brief?",
+    "short": "It tracks changes to files over time so you can review and revert them.",
+    "long": "A version control system like Git records changes to a set of files over time, letting you review the history, compare versions, revert to earlier states, work on parallel branches, and collaborate with others by merging everyone's contributions while keeping a complete, auditable record of who changed what and when."
+  },
+  {
+    "id": "tie-primary-color",
+    "question": "Name a primary color (in the traditional RYB model).",
+    "short": "Red.",
+    "long": "One primary color in the traditional red-yellow-blue model is red. Primary colors are those that cannot be created by mixing other colors together and which can themselves be combined to produce the broader range of secondary and tertiary colors on the wheel."
+  }
+]

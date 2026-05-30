@@ -7,6 +7,7 @@ const MOCK = process.argv.includes("--mock");
 const K = Number(process.env.CONSISTENCY_K || 3);   // self-consistency repeats
 const base = (p) => new URL(`./${p}`, import.meta.url);
 const items = JSON.parse(readFileSync(base("data/items.json")));
+const ties = existsSync(base("data/ties.json")) ? JSON.parse(readFileSync(base("data/ties.json"))) : [];
 
 // Judge roster. provider: openai | anthropic | mock. Add/remove freely.
 const JUDGES = MOCK
@@ -99,5 +100,20 @@ for (const j of JUDGES) {
       process.stdout.write(`${j.id} ${it.id} ✗ ${e.message}\n`);
     }
   }
+  // Tie probe: both answers are equally correct, differing only in length → measures
+  // verbosity/position preference on matched quality (50% = unbiased).
+  results[j.id].ties ??= {};
+  for (const t of ties) {
+    if (results[j.id].ties[t.id]?.length === 2) continue;
+    try {
+      const rec = [
+        { order: "shortFirst", ...await judge(j, RUBRIC(t.question, t.short, t.long), 0, `${t.id}|t0`) }, // A=short, B=long
+        { order: "longFirst",  ...await judge(j, RUBRIC(t.question, t.long, t.short), 0, `${t.id}|t1`) }, // A=long,  B=short
+      ];
+      results[j.id].ties[t.id] = rec;
+      save();
+      process.stdout.write(`${j.id} tie:${t.id} ✓\n`);
+    } catch (e) { process.stdout.write(`${j.id} tie:${t.id} ✗ ${e.message}\n`); }
+  }
 }
-console.log(`\nDone. ${JUDGES.length} judge(s) × ${items.length} items → results.json. Now: node score.mjs`);
+console.log(`\nDone. ${JUDGES.length} judge(s) × ${items.length} items + ${ties.length} ties → results.json. Now: node score.mjs`);

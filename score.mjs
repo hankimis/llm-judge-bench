@@ -40,8 +40,16 @@ for (const [id, data] of Object.entries(R)) {
       sc += Math.max(a, b) / it.consist.length; scN++;
     }
   }
+  // tie probe: matched-quality (both correct), differ only in length
+  let longPref = 0, tieFirst = 0, tieN = 0;
+  for (const rec of Object.values(data.ties || {})) {
+    const sf = rec.find(x => x.order === "shortFirst"), lf = rec.find(x => x.order === "longFirst");
+    if (sf?.winner) { longPref += sf.winner === "B" ? 1 : 0; tieFirst += sf.winner === "A" ? 1 : 0; tieN++; } // B=long
+    if (lf?.winner) { longPref += lf.winner === "A" ? 1 : 0; tieFirst += lf.winner === "A" ? 1 : 0; tieN++; } // A=long
+  }
   rows.push({
     id, n: its.length,
+    tieN: tieN/2, longPref: tieN ? 100*longPref/tieN : NaN, tieFirst: tieN ? 100*tieFirst/tieN : NaN,
     truth: 100*truth/its.length,
     naive: 100*naive/naiveN,
     firstA: 100*firstA/firstN,
@@ -68,4 +76,19 @@ for (const r of rows) {
   );
 }
 console.log(`\n${C.D}진실정확도: 양쪽 순서에서 모두 정답 선택(높을수록 좋음) · 1번슬롯선호: 50%=무편향 · 순서일관: 높을수록 좋음`);
-console.log(`장문에현혹: 틀린 답을 길게 늘이면 진실정확이 깨지는 비율(낮을수록 좋음) · 자기일관: 같은 질문 반복 시 일치율 · Brier: 캘리브레이션(낮을수록 좋음)${C.X}\n`);
+console.log(`장문에현혹: 틀린 답을 길게 늘이면 진실정확이 깨지는 비율(낮을수록 좋음) · 자기일관: 같은 질문 반복 시 일치율 · Brier: 캘리브레이션(낮을수록 좋음)${C.X}`);
+
+// ---- tie probe: the sensitive bias test (both answers equally correct, differ only in length) ----
+if (rows.some(r => Number.isFinite(r.longPref))) {
+  console.log(`\n${C.b}동점 쌍 편향 테스트${C.X} ${C.D}(${rows[0].tieN}쌍 · 둘 다 정답, 길이만 다름 → 50%=완전 무편향)${C.X}\n`);
+  console.log(`${C.D}judge                긴답 선호   1번슬롯 선호   판정${C.X}`);
+  console.log("-".repeat(60));
+  for (const r of rows) {
+    if (!Number.isFinite(r.longPref)) continue;
+    const dev = Math.abs(r.longPref - 50);
+    const col = dev <= 10 ? C.G : dev <= 25 ? C.Y : C.R;
+    const verdict = r.longPref >= 75 ? "강한 장문편향" : r.longPref >= 60 ? "장문편향" : r.longPref <= 40 ? "단답편향" : "무편향";
+    console.log(`${r.id.padEnd(20)} ${col}${f(r.longPref).padStart(6)}%${C.X}    ${(Math.abs(r.tieFirst-50)<=10?C.G:C.Y)}${f(r.tieFirst).padStart(6)}%${C.X}     ${col}${verdict}${C.X}`);
+  }
+  console.log(`\n${C.D}긴답 선호 > 60% = verbosity bias(품질 같은데 긴 답을 고름). LLM-judge의 고전적 편향이 실제로 드러나는 곳.${C.X}\n`);
+}

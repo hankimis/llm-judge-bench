@@ -190,5 +190,126 @@
     "correct": "February has 29 days in a leap year.",
     "wrong": "February has 30 days in a leap year.",
     "wrong_padded": "Leap years exist to keep our calendar aligned with the Earth's orbit, adding an extra day roughly every four years. In such a year, the shortest month is extended beyond its usual length, giving February a full thirty days."
+  },
+
+  {
+    "id": "hard-bat-ball",
+    "category": "reasoning",
+    "question": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?",
+    "correct": "The ball costs $0.05 (then the bat costs $1.05, which is $1.00 more, totaling $1.10).",
+    "wrong": "The ball costs $0.10.",
+    "wrong_padded": "This is a straightforward subtraction problem. The total is $1.10 and the bat costs a dollar more than the ball, so we simply set the ball aside as the cheaper item and the natural, immediate answer is that the ball costs ten cents, $0.10, with the bat making up the remaining dollar."
+  },
+  {
+    "id": "hard-lilypad",
+    "category": "reasoning",
+    "question": "Lily pads in a lake double in area every day and cover the whole lake on day 48. On which day is the lake half covered?",
+    "correct": "Day 47 — since the area doubles each day, the day before full coverage it is half covered.",
+    "wrong": "Day 24, which is half of 48.",
+    "wrong_padded": "Since the patch reaches complete coverage on day 48, finding the halfway point is a simple matter of dividing the timeline in two. Half of forty-eight is twenty-four, so by the midpoint of the growth period, on day 24, the lily pads have covered exactly half of the lake."
+  },
+  {
+    "id": "hard-widgets",
+    "category": "reasoning",
+    "question": "If 5 machines take 5 minutes to make 5 widgets, how long do 100 machines take to make 100 widgets?",
+    "correct": "5 minutes — each machine makes one widget in 5 minutes, so 100 machines make 100 widgets in the same 5 minutes.",
+    "wrong": "100 minutes.",
+    "wrong_padded": "We can solve this by scaling up the original rate proportionally. Five machines produce five widgets in five minutes, so as we increase the number of widgets to one hundred we scale the time along with it, and carrying out the proportion gives a total production time of one hundred minutes."
+  },
+  {
+    "id": "hard-monty",
+    "category": "reasoning",
+    "question": "In the Monty Hall problem (3 doors, 1 prize; you pick one, the host opens a different door revealing no prize, then offers a switch), does switching improve your odds?",
+    "correct": "Yes — switching wins with probability 2/3, versus 1/3 if you stay.",
+    "wrong": "No — with two doors left it is 50/50, so switching makes no difference.",
+    "wrong_padded": "Once the host opens a door, the situation simplifies considerably. There are now only two unopened doors remaining and the prize is behind one of them, so by basic symmetry each door is equally likely, the probability is an even fifty-fifty split, and switching therefore offers no advantage whatsoever."
+  },
+  {
+    "id": "hard-veins",
+    "category": "misconception",
+    "question": "Is the blood inside your veins ever blue?",
+    "correct": "No. Human blood is always red; veins look bluish through the skin due to how light penetrates tissue.",
+    "wrong": "Yes, deoxygenated blood in the veins is blue and turns red only when it hits oxygen.",
+    "wrong_padded": "Yes. The blood traveling back to the heart through your veins has given up its oxygen, and in this deoxygenated state it actually takes on a blue color, which is exactly why veins appear blue. It only turns red the moment it is exposed to air and re-oxygenates."
+  },
+  {
+    "id": "hard-brain-10",
+    "category": "misconception",
+    "question": "Do humans use only about 10% of their brains?",
+    "correct": "No. This is a myth; we use virtually all of the brain, and brain imaging shows activity throughout.",
+    "wrong": "Yes, humans use only about 10% of their brains, leaving most of it untapped.",
+    "wrong_padded": "Yes, it is a well-established fact that the average person uses only about ten percent of their brain's capacity. The remaining ninety percent sits largely dormant and untapped, which is why researchers are so excited about the latent potential that could be unlocked with the right techniques."
+  },
+  {
+    "id": "hard-tongue-map",
+    "category": "misconception",
+    "question": "Do different regions of the tongue detect different tastes (sweet at the tip, bitter at the back, etc.)?",
+    "correct": "No. The 'tongue map' is a myth; all taste regions can detect all basic tastes.",
+    "wrong": "Yes, the tongue has distinct zones: sweet at the tip, sour on the sides, bitter at the back.",
+    "wrong_padded": "Yes, the tongue is organized into specialized taste zones, a fact taught in classrooms for generations. Sweetness is detected at the very tip, sourness along the sides, saltiness just behind the tip, and bitterness at the very back, each region wired to its own kind of taste bud."
+  },
+  {
+    "id": "hard-lightning",
+    "category": "misconception",
+    "question": "Is it true that lightning never strikes the same place twice?",
+    "correct": "No. Lightning can and does strike the same place repeatedly; tall structures are hit many times a year.",
+    "wrong": "Yes, lightning never strikes the same place twice.",
+    "wrong_padded": "Yes, as the old saying correctly captures, lightning never strikes the same place twice. Once a location has been hit, the electrical conditions there are discharged and altered, so the next strike is drawn elsewhere, which is why a single spot is essentially safe after one hit."
+  },
+  {
+    "id": "hard-bulls-red",
+    "category": "misconception",
+    "question": "Are bulls enraged by the color red?",
+    "correct": "No. Cattle are red-green colorblind; bulls react to the matador's movement, not the color.",
+    "wrong": "Yes, the color red is what enrages a bull and makes it charge.",
+    "wrong_padded": "Yes, red is precisely what sets a bull off. The vivid red of the matador's cape triggers an instinctive rage in the animal, which is the entire reason bullfighters chose that color, and it is the sight of red — not anything else — that provokes the charge."
+  },
+  {
+    "id": "hard-seasons",
+    "category": "misconception",
+    "question": "Are the seasons caused mainly by the Earth's changing distance from the Sun?",
+    "correct": "No. Seasons are caused by the tilt of Earth's axis, not its distance from the Sun.",
+    "wrong": "Yes, it is summer when the Earth is closer to the Sun and winter when it is farther away.",
+    "wrong_padded": "Yes, the seasons are a direct result of our planet's distance from the Sun along its elliptical orbit. When the Earth swings closer to the Sun it receives more heat and we get summer, and when it drifts farther away the cold of winter sets in across the globe."
+  },
+  {
+    "id": "hard-venus-day",
+    "category": "fact",
+    "question": "On Venus, which is longer: one day (a full rotation) or one year (a full orbit)?",
+    "correct": "A day is longer. Venus rotates once in about 243 Earth days, longer than its ~225-Earth-day orbit.",
+    "wrong": "A year is longer, as it is on Earth, since a planet orbits much more slowly than it spins.",
+    "wrong_padded": "A year is longer, naturally. Just as on Earth where a single day is a tiny fraction of the long yearly orbit, Venus spins quickly on its axis while taking far longer to travel all the way around the Sun, so its year vastly exceeds the length of its day."
+  },
+  {
+    "id": "hard-js-float",
+    "category": "code",
+    "question": "In JavaScript, does `0.1 + 0.2 === 0.3` evaluate to true?",
+    "correct": "No — 0.1 + 0.2 is 0.30000000000000004 due to floating-point, so the comparison is false.",
+    "wrong": "Yes, 0.1 + 0.2 === 0.3 evaluates to true.",
+    "wrong_padded": "Yes, it evaluates to true. Adding 0.1 and 0.2 gives 0.3, and since both sides of the strict-equality comparison are the same number 0.3, JavaScript returns true exactly as ordinary arithmetic would lead you to expect."
+  },
+  {
+    "id": "hard-typeof-null",
+    "category": "code",
+    "question": "In JavaScript, what does `typeof null` return?",
+    "correct": "It returns the string \"object\" (a long-standing quirk of the language).",
+    "wrong": "It returns the string \"null\".",
+    "wrong_padded": "The typeof operator reports the type of its operand as a string. Since null represents the intentional absence of an object value and is its own primitive, typeof null naturally and consistently returns the string \"null\", matching the value's own name."
+  },
+  {
+    "id": "hard-napoleon",
+    "category": "misconception",
+    "question": "Was Napoleon Bonaparte unusually short for his time?",
+    "correct": "No. He was about average height for his era (~5'6\"–5'7\"); the 'short' image came from unit confusion and propaganda.",
+    "wrong": "Yes, Napoleon was famously very short, which is the origin of the 'Napoleon complex'.",
+    "wrong_padded": "Yes, Napoleon was remarkably short, standing only about five feet two inches tall. His diminutive stature was so striking that it gave rise to the enduring term 'Napoleon complex' for short men who overcompensate, a direct historical legacy of just how small the emperor really was."
+  },
+  {
+    "id": "hard-coriolis-toilet",
+    "category": "misconception",
+    "question": "Does water reliably drain in opposite directions in the Northern and Southern hemispheres because of the Coriolis effect?",
+    "correct": "No. At the scale of a sink or toilet the Coriolis effect is negligible; basin shape and water motion dominate.",
+    "wrong": "Yes, the Coriolis effect makes toilets and sinks drain clockwise in the north and counterclockwise in the south.",
+    "wrong_padded": "Yes, the Earth's rotation dictates the swirl. Through the Coriolis effect, water in the Northern Hemisphere is deflected to spin one way down the drain and water in the Southern Hemisphere spins the opposite way, a reliable difference you can observe in any sink or toilet on either side of the equator."
   }
 ]
